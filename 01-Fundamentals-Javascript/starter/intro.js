@@ -1,10 +1,10 @@
 // Discuss about naming convention.
 // Be Detailed as possible.
-let firstName = "Jessie";
-var lastName = "Caminos";
-const place = "Ozamis City";
+// let firstName = "Jessie";
+// var lastName = "Caminos";
+// const place = "Ozamis City";
 
-console.log(firstName + " " + lastName + " " + place);
+// console.log(firstName + " " + lastName + " " + place);
 
 // Data Types
 // let firstNumber = 10; //Floating point number which it awlays have decimal point.
@@ -45,15 +45,46 @@ console.log(firstName + " " + lastName + " " + place);
 // -------------------------------------------------
 
 // -------------------------------------------------
-// Challenge 1
-// const massMark = 78,
-//   massJohn = 92;
-// const heightMark = 1.69,
-//   heightJohn = 1.95;
-// const BMIMark = massMark / (heightMark * heightMark);
-// const BMIJohn = massJohn / (heightJohn * heightJohn);
-// console.log(BMIMark);
-// console.log(BMIJohn);
-// const markHigherBMI = BMIMark > BMIJohn;
-// console.log(markHigherBMI);
-// -------------------------------------------------
+// Strings and Template Literals
+// const firstName = "Jessie";
+// const job = "Software Developer";
+// const birthYear = 1999,
+//   now = 2023;
+
+// Using double quote in string is hard.
+// const sentence =
+//   "I'm " +
+//   firstName +
+//   ", a " +
+//   job +
+//   " I am " +
+//   (now - birthYear) +
+//   " years old";
+// console.log(sentence);
+// // Using backtick makes it easy and flexible you can concatinate using (${}) inside backtick
+// // in making newline, you can also literally enter to make newline.
+// const newName = `I am ${firstName} I work as ${job}, I am ${
+//   now - birthYear
+// } years old`;
+// console.log(newName);
+// ----------------------------------------------------
+
+// ----------------------------------------------------
+// Conditions if/else
+
+// const age = 15;
+// if (age >= 18) {
+//   console.log(`You can now get you licence`);
+// } else {
+//   const yearNeed = 18 - age;
+//   console.log(`You need atleast ${yearNeed} year/s to get licence`);
+// }
+
+// const birthYear = 1999;
+// let century;
+// if (birthYear <= 2000) {
+//   century = `20th`;
+// } else {
+//   century = `21th`;
+// }
+// console.log(century);
