@@ -88,3 +88,37 @@
 //   century = `21th`;
 // }
 // console.log(century);
+// ----------------------------------------------------
+
+// ----------------------------------------------------
+// Type Conversion
+// const number = "2023";
+// const number2 = "jessie";
+// console.log(Number(number) + 2); // Convert string to number
+// console.log(Number(number2) + 2); // Convert string to number but NAN
+// console.log(String(number), 2); // Convert number to string
+
+// // Type Coercion
+// console.log("I'am Jessie, " + 23 + " Years young"); //Using plus(+) sign will convert numbers to string
+// console.log("jess" - "9" - 3); // This will do the opposite using minus(-) will convert the string to number.
+// ----------------------------------------------------
+
+// ----------------------------------------------------
+// Truthy ang Falsy Values
+const data = [
+  { value: 0 }, // Value containing "0".
+  { value: "" }, // Value containing empty string.
+  { value: undefined }, // Value containing undefine.
+  { value: null }, // Value containing null.
+  { value: NaN }, // Value containing NaN.
+];
+data.map((values) => {
+  console.log(Boolean(values.value));
+});
+
+console.log(Boolean("jesie"));
+console.log(Boolean(1));
+const number = "2023";
+console.log(number - 2);
+
+
