@@ -106,19 +106,126 @@
 // ----------------------------------------------------
 // Truthy ang Falsy Values
 const data = [
-  { value: 0 }, // Value containing "0".
-  { value: "" }, // Value containing empty string.
-  { value: undefined }, // Value containing undefine.
-  { value: null }, // Value containing null.
-  { value: NaN }, // Value containing NaN.
+  { value: 0 }, // Value containing "0". Is considered as FALSY VALUE.
+  { value: "" }, // Value containing empty string. Is considered as FALSY VALUE.
+  { value: undefined }, // Value containing undefine. Is considered as FALSY VALUE.
+  { value: null }, // Value containing null. Is considered as FALSY VALUE.
+  { value: NaN }, // Value containing NaN. Is considered as FALSY VALUE.
 ];
-data.map((values) => {
-  console.log(Boolean(values.value));
-});
+// data.map((values) => {
+//   console.log(Boolean(values.value)); // This will return false because it is a falsy value.
+// });
 
-console.log(Boolean("jesie"));
-console.log(Boolean(1));
-const number = "2023";
-console.log(number - 2);
+// console.log(Boolean("jesie"));
+// console.log(Boolean(1));
+// const number = "2023";
+// console.log(number - 2);
+// ----------------------------------------------------
 
+
+// ----------------------------------------------------
+// Equality Operators
+// const birthYear = 1999;
+
+// if(birthYear == 1999){ // checking only the value (==)
+//   console.log("They have the same value");
+// }
+
+// if(birthYear === 1999){ // check both value and type (===)
+//   console.log("They have the same value and type");
+// }
+
+// console.log(typeof birthYear, birthYear);
+// const personName = "Jessie";
+
+// const inputNumber = prompt(`  Hey there! ${personName}, 
+//   Enter Number`
+// );
+
+// if(Number(inputNumber) === 23){
+//   alert("Same value AND of the type");
+// }
+
+// if(convertedNumber == 23){
+//   alert("Same value but NOT of the type");
+// }
+// ----------------------------------------------------
+
+
+
+// -------------------------------------------------
+// Boolean logic - AND / OR / NOT
+
+// Logical AND
+// Returns True when BOTH values are True
+
+// Logical OR
+// Returns True when ONE values are True
+// ony False when BOTH values are FALSE
+
+// Logic NOT
+// Returns the opposite of the value
+
+// -------------------------------------------------
+
+
+// -------------------------------------------------
+// Logical Operators
+// -------------------------------------------------
+
+
+
+
+// -------------------------------------------------
+// Switch Statement
+
+// const car = "BMW";
+
+// console.log(`You enter ${car}`);
+
+// switch (car) {
+//   case "Bugaati":
+//     console.log(`Your car ${car} is Fast`);
+//     break;
+//   case "Ford Ranger":
+//   case "Everrest":
+//     console.log(`Your car ${car} is Fast and Good for offroad`);
+//     break;
+//   case "Land Cruiser":
+//     console.log(`Your car ${car} is Good for offroad`);
+//     break;
+//   case "BMW":
+//     console.log(`Your car ${car} is Fast and Good for City`);
+//     break;
+//   default:
+//     console.log(`Your car ${car} is not in the list`);
+//     break;
+// }
+
+// if(car === "Bugaati"){
+//   console.log(`Your car ${car} is Fast`);
+// }else if(car === "Ford Ranger" || "Everrest"){
+//   console.log(`Your car ${car} is Fast and Good for offroad`);
+// }else if(car === "Land Cruiser"){
+//   console.log(`Your car ${car} is Fast and Good for offroad`);
+// }else if(car === "BMW"){
+//   console.log(`Your car ${car} is Fast and Good for City`);
+// }else{
+//   console.log(`Your car ${car} is not in the list`);
+// }
+// -------------------------------------------------
+
+
+// -------------------------------------------------
+// Ternary Operator
+// like if else but only for 2 choices
+let result = (logic) => {
+  // if(logic){
+  //   return "The result is true";
+  // }else{
+  //   return "The result is false";
+  // }
+  return logic ? 'The result is true' : 'The result is false';
+}
+console.log(result(true));
 
