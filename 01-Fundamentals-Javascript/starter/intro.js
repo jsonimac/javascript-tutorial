@@ -215,17 +215,33 @@ const data = [
 // }
 // -------------------------------------------------
 
+//-----------------------------------
+// -> EXPRESSION => RETURNS VALUE.
+// -> STATEMENT => SET OF INSTRUCTION
+//-----------------------------------
 
 // -------------------------------------------------
 // Ternary Operator
+
 // like if else but only for 2 choices
-let result = (logic) => {
+// let result = (logic) => {
   // if(logic){
   //   return "The result is true";
   // }else{
   //   return "The result is false";
   // }
-  return logic ? 'The result is true' : 'The result is false';
-}
-console.log(result(true));
+  // return logic ? 'The result is true' : 'The result is false';
+// }
+// let a = 10;
+// let b = 20;
+// let bol = true;
+// // let output = !(a > b && bol) ? 'output is true' : 'output is false';
+// let output = (a > b && bol);
+
+// console.log(result(a > b && bol));
+// console.log(output)
+
+// -------------------------------------------------
+
+// -------------------------------------------------
 
