@@ -98,9 +98,20 @@
 // console.log(Number(number2) + 2); // Convert string to number but NAN
 // console.log(String(number), 2); // Convert number to string
 
-// // Type Coercion
+// Type Coercion
 // console.log("I'am Jessie, " + 23 + " Years young"); //Using plus(+) sign will convert numbers to string
 // console.log("jess" - "9" - 3); // This will do the opposite using minus(-) will convert the string to number.
+
+// const age = 23;
+// const Fname = "817239";
+
+// String Coersion - Automatically convertion
+// console.log("50" - age);
+// console.log(age + "50");
+
+// String Conversion - Manual convertion
+// console.log(String(age));
+// console.log(Number(Fname));
 // ----------------------------------------------------
 
 // ----------------------------------------------------
