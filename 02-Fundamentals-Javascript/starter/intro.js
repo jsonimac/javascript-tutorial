@@ -61,3 +61,58 @@
 
 // console.log(dataSentence('jessie', 'taboo', 'sonimac1227@gmail.com'));
 // ---------------------------------------------
+
+//
+// ---------------------------------------------
+//ARRAY INTRO
+// Note: Array can only store expression
+// const books = ['Grit', '7 Habits', 'Atomic Habits'];
+// console.log(books[books.length - 1]);
+// books[1] = 'New book';
+// console.log(books);
+// ---------------------------------------------
+
+
+// ---------------------------------------------
+//Array functions
+const books = ['Grit', '7 Habits', 'Atomic Habits', 12344];
+
+// ADD FUNCTIONS
+// -------------------------
+// push(Add item in last)
+// unshift(add item in first)
+// -------------------------
+console.log('Using push method (New book last)')
+books.push('New book last'); //Add Last
+console.log(books);
+
+console.log('Using unshift method (first new book)')
+books.unshift('first new book'); //Add first
+console.log(books);
+
+// REMOVE FUNCTIONS
+// -------------------------
+// pop(remove item in last)
+// shift(remove item in first)
+// -------------------------
+console.log('Using pop method (Remove last)')
+books.pop(); // Remove last
+console.log(books);
+
+console.log('Using shift method (Remove first)')
+books.shift(); // Remove first
+console.log(books);
+
+
+console.log(books.indexOf('Grit'));
+console.log(books.indexOf('grit'));
+
+
+console.log(books.includes('Grit'));
+console.log(books.includes(12344));
+
+
+
+
+
+
