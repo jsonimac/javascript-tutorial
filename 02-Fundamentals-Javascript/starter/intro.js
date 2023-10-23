@@ -113,12 +113,12 @@
 // ---------------------------------------------
 // OBJECT
 
-function ageCal(year){
-  return 2023 - year;
-}
-const gender = (gender) => {
-  return gender;
-}
+// function ageCal(year){
+//   return 2023 - year;
+// }
+// const gender = (gender) => {
+//   return gender;
+// }
 
 
 // const jessie = {
@@ -195,5 +195,27 @@ const gender = (gender) => {
 // console.log(jessie['newNum']);
 // console.log(jessie.summary());
 
+// Object End lesson
+// ---------------------------------------------
+
+
+// Loops Lessons
+// const rip = 10;
+
+// for (let i = 0; i < rip; i++) {
+//   console.log(`This is ${i}`);
+// }
+
+// Loop in arrays
+const jessie = [
+  'Jessie',
+  'Caminos',
+  2023 - 1999,
+  'Boy'
+]
+
+for (let i = 0; i < jessie.length; i++) {
+  console.log(jessie[i]);
+}
 
 
