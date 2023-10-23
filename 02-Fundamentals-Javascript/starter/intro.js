@@ -75,44 +75,125 @@
 
 // ---------------------------------------------
 //Array functions
-const books = ['Grit', '7 Habits', 'Atomic Habits', 12344];
+// const books = ['Grit', '7 Habits', 'Atomic Habits', 12344];
 
 // ADD FUNCTIONS
 // -------------------------
 // push(Add item in last)
 // unshift(add item in first)
 // -------------------------
-console.log('Using push method (New book last)')
-books.push('New book last'); //Add Last
-console.log(books);
+// console.log('Using push method (New book last)')
+// books.push('New book last'); //Add Last
+// console.log(books);
 
-console.log('Using unshift method (first new book)')
-books.unshift('first new book'); //Add first
-console.log(books);
+// console.log('Using unshift method (first new book)')
+// books.unshift('first new book'); //Add first
+// console.log(books);
 
 // REMOVE FUNCTIONS
 // -------------------------
 // pop(remove item in last)
 // shift(remove item in first)
 // -------------------------
-console.log('Using pop method (Remove last)')
-books.pop(); // Remove last
-console.log(books);
+// console.log('Using pop method (Remove last)')
+// books.pop(); // Remove last
+// console.log(books);
 
-console.log('Using shift method (Remove first)')
-books.shift(); // Remove first
-console.log(books);
-
-
-console.log(books.indexOf('Grit'));
-console.log(books.indexOf('grit'));
+// console.log('Using shift method (Remove first)')
+// books.shift(); // Remove first
+// console.log(books);
 
 
-console.log(books.includes('Grit'));
-console.log(books.includes(12344));
+// console.log(books.indexOf('Grit'));
+// console.log(books.indexOf('grit'));
+// console.log(books.includes('Grit'));
+// console.log(books.includes(12344));
 
 
+// ---------------------------------------------
+// OBJECT
 
+function ageCal(year){
+  return 2023 - year;
+}
+const gender = (gender) => {
+  return gender;
+}
+
+
+// const jessie = {
+//   first_name: 'Jessie',
+//   last_name: 'Caminos',
+//   age: ageCal(1999),
+//   friends: ['Mel John', 'Rhandyl', 'Tadong'],
+//   gender: 'Male',
+//   favNum: 23,
+//   certified: true,
+//   job: 'Wed Developer',
+//   total: function(sampNum){
+//     this.newNum = this.favNum + sampNum;
+//     return this.newNum
+//   },
+  // samFunc: (sample) => {
+  //   return `This is sample ${sample} function`
+  // }
+
+  // Use function rather than arrow inside object to access the properties
+  // samFunc: function(){
+  //   return `Function accessing the property: ${this.first_name}`;
+  // },
+
+  //Accessing all global method thru this property
+  // propertyy: console.log(this)
+
+//   summary: function(){
+//     const isCertified = this.certified ? 'a' : 'not';
+//     const pronoun = this.gender === "male" ? 'he' : 'she';
+//     const sentence = `
+//       ${this.first_name} is a ${this.job} ${pronoun} is  ${isCertified} certified ${this.job}
+//     `
+//     return console.log(sentence);
+//   },
+
+
+// }
+
+
+// console.log(jessie.last_name);
+// console.log(jessie.friends);
+// console.log(jessie.age);
+// console.log(jessie.isBoy);
+
+// const word = 'ends';
+// console.log('This is braket Notation ' + jessie['fri'+ word]);
+// console.log('This is Dot Notation '+ jessie.friends);
+
+// Accessing the function using dot notation
+// console.log(jessie.samFunc('Jessie'));
+
+// Accessing the function using the bracket notation
+// console.log(jessie['samFunc']('Jessie'));
+
+
+// const answer = prompt(`Choose between first_name, last_name, age, friends, isBoy`);
+
+// if(jessie[answer]){
+//   console.log(`You choose: `+ jessie[answer])
+// }else{
+//   console.log(`Invalid Choice`+ jessie[answer])
+// }
+
+// CHALLENGE - Access array inside object
+// console.log(`
+//   ${jessie.first_name} has ${jessie.friends.length} friends, and his best friend is ${jessie.friends[0]}
+// `);
+
+
+// console.log(typeof jessie['samFunc']);
+// console.log(jessie['propertyy']);
+// console.log(jessie['total'](5));
+// console.log(jessie['newNum']);
+// console.log(jessie.summary());
 
 
 
