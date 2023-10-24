@@ -199,6 +199,8 @@
 // ---------------------------------------------
 
 
+
+// ---------------------------------------------
 // Loops Lessons
 // const rip = 10;
 
@@ -207,6 +209,18 @@
 // }
 
 // Loop in arrays
+// const jessie = [
+//   'Jessie',
+//   'Caminos',
+//   2023 - 1999,
+//   'Boy'
+// ]
+
+// for (let i = 0; i < jessie.length; i++) {
+//   console.log(jessie[i]);
+// }
+
+//Loop using Break and Continue
 const jessie = [
   'Jessie',
   'Caminos',
@@ -214,8 +228,19 @@ const jessie = [
   'Boy'
 ]
 
-for (let i = 0; i < jessie.length; i++) {
+// CONTINUE => skip the value or "jumps over" the loop
+// Ex. if value is not a string then it will skip or "Jumps over" the loop
+for (let i = 0;  i< jessie.length; i++) {
+  if(typeof jessie[i] !== 'string'){
+    continue;
+  }
   console.log(jessie[i]);
 }
 
-
+// BREAK => end the loop or "Jumps out" the loop
+for (let i = 0;  i< jessie.length; i++) {
+  if(typeof jessie[i] !== 'string'){
+    break;
+  }
+  console.log(jessie[i]);
+}
