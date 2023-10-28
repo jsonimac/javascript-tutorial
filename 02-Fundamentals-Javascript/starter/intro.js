@@ -221,26 +221,127 @@
 // }
 
 //Loop using Break and Continue
-const jessie = [
-  'Jessie',
-  'Caminos',
-  2023 - 1999,
-  'Boy'
-]
+// const jessie = [
+//   'Jessie',
+//   'Caminos',
+//   2023 - 1999,
+//   'Boy'
+// ]
 
 // CONTINUE => skip the value or "jumps over" the loop
 // Ex. if value is not a string then it will skip or "Jumps over" the loop
-for (let i = 0;  i< jessie.length; i++) {
-  if(typeof jessie[i] !== 'string'){
-    continue;
-  }
-  console.log(jessie[i]);
-}
+// for (let i = 0;  i< jessie.length; i++) {
+//   if(typeof jessie[i] !== 'string'){
+//     continue;
+//   }
+//   console.log(jessie[i]);
+// }
 
 // BREAK => end the loop or "Jumps out" the loop
-for (let i = 0;  i< jessie.length; i++) {
-  if(typeof jessie[i] !== 'string'){
-    break;
-  }
-  console.log(jessie[i]);
+// for (let i = 0;  i< jessie.length; i++) {
+//   if(typeof jessie[i] !== 'string'){
+//     break;
+//   }
+//   console.log(jessie[i]);
+// }
+
+// Loop Backwards
+// --------------------------------------------
+// CONTINUE AFTER STUDYING OBJECT MANIPULATION
+// --------------------------------------------
+// const jessie = [
+//   'Jessie',
+//   'Caminos',
+//   2023 - 1999,
+//   'Boy'
+// ]
+
+// for (let i = jessie.length - 1; i >= 0; i--) {
+//   console.log(jessie[i]);
+// }
+
+// const exercise = ['Biceps', 'Arm', 'Legs', 'Abdominal'];
+
+// for (let i = 0; i < exercise.length; i++) {
+
+//   for (let j = 0; j < 5; j++) {
+//     let ord = '';
+//     if(i+1 == 1){
+//       ord = 'st'
+//     }else if(i+1 == 2){
+//       ord = 'nd'
+//     }else if(i+1 == 3){
+//       ord = 'rd'
+//     }else{
+//       ord = 'th'
+//     }
+//     console.log(`The ${i+1}${ord} excercise is ${exercise[i]} => rip ${j+1}`)
+//   }
+
+// }
+
+
+
+  // Calculate average height from received data. If no data, return null.
+const datas = {
+  jessie: { 
+    height: 174, 
+    weight: 69, 
+    skills: ['swimm', 'pull ups'] },
+  mark: { 
+    height: 165, 
+    weight: 43, 
+    skills: ['travel', 'girlss']
+  },
+  clark: { 
+    height: 172, 
+    weight: 53, 
+    skills: ['coffee', 'coding']
+  },
+  charles: { 
+    height: 189, 
+    weight: 72, 
+    skills: ['sleep', 'eating'] 
+  },
 }
+
+// for (const key in data) {
+//   const text = data[key]
+//   for (const face of text.faces) {
+//     console.log(face);
+//   }
+  
+// }
+
+// const charles = 
+
+const getHeight = function(data){
+  const val = data.jessie;
+  // console.log(val);
+  for (const key of val.skills) {
+    console.log(key);
+  }
+}
+
+getHeight(datas)
+
+
+
+
+// const calcAveHeight = (data) =>{
+ 
+//   let totHei = 0;
+//   if(data == null || data.length == 0){
+//     const nodata = 'No data';
+//     console.log(nodata);
+//   }else{
+//     for (const prop in data) {
+//       let result = data[prop];
+//       totHei += result.height;      
+//     }
+//     const output = totHei / Object.keys(data).length;
+//     return output;
+//   }
+// }
+
+// console.log(calcAveHeight(datas))
