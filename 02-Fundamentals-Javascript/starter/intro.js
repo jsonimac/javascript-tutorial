@@ -280,68 +280,91 @@
 
 // }
 
+// --------------------------------------------
+// Loop over OBJECT 
 
-
-  // Calculate average height from received data. If no data, return null.
-const datas = {
+const sampleData = {
   jessie: { 
     height: 174, 
     weight: 69, 
-    skills: ['swimm', 'pull ups'] },
+    skills: ['swimm', 'pull ups'],
+    parents: {
+      mother: 'clara',
+      father: 'richmon'
+    }
+  },
   mark: { 
     height: 165, 
     weight: 43, 
-    skills: ['travel', 'girlss']
+    skills: ['travel', 'girlss'],
+    parents: {
+      mother: 'jaden',
+      father: 'josh'
+    }  
   },
   clark: { 
     height: 172, 
     weight: 53, 
-    skills: ['coffee', 'coding']
+    skills: ['coffee', 'coding'],
+    parents: {
+      mother: 'blane',
+      father: 'bron'
+    }  
   },
   charles: { 
     height: 189, 
     weight: 72, 
-    skills: ['sleep', 'eating'] 
+    skills: ['sleep', 'eating'],
+    parents: {
+      mother: 'mary',
+      father: 'mike'
+    }
   },
 }
 
-// for (const key in data) {
-//   const text = data[key]
-//   for (const face of text.faces) {
-//     console.log(face);
+/* CHALLENGE 1
+  --------------------------------
+  GET THE AVERAGE OF THE HEIGHT
+  --------------------------------
+*/
+// const calcHeight = function(data){
+//   let total = 0;
+//   let ave = 0;
+//   let length = Object.keys(data).length;
+//   for (const key in data) {
+//     console.log(`${total} = ${total} + ${data[key].height}`)
+//     total += data[key].height
 //   }
-  
+//   console.log(`-----------------------------`);
+//   console.log(`${ave} = ${total} / ${length}`);
+//   ave = total / length;
+//   console.log(`-----------------------------`);
+//   console.log(ave);
 // }
-
-// const charles = 
-
-const getHeight = function(data){
-  const val = data.jessie;
-  // console.log(val);
-  for (const key of val.skills) {
-    console.log(key);
-  }
-}
-
-getHeight(datas)
+// calcHeight(sampleData)
+// --------------------------------
 
 
+/* CHALLENGE 2
+  --------------------------------
+  GET THE ALL THE SKILLS OF ALL PLAYERS
+  --------------------------------
+*/
 
+/* CHALLENGE 3
+  --------------------------------
+  GET THE ALL THE SKILLS OF CHARLES
+  --------------------------------
+*/
 
-// const calcAveHeight = (data) =>{
- 
-//   let totHei = 0;
-//   if(data == null || data.length == 0){
-//     const nodata = 'No data';
-//     console.log(nodata);
-//   }else{
-//     for (const prop in data) {
-//       let result = data[prop];
-//       totHei += result.height;      
-//     }
-//     const output = totHei / Object.keys(data).length;
-//     return output;
-//   }
-// }
+/* CHALLENGE 4
+  --------------------------------
+  GET THE ALL THE PARENTS OF ALL PLAYERS
+  --------------------------------
+*/
 
-// console.log(calcAveHeight(datas))
+/* CHALLENGE 5
+  --------------------------------
+  GET THE ALL THE PARENTS OF MARK PLAYERS
+  --------------------------------
+*/
