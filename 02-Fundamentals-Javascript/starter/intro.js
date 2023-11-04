@@ -349,22 +349,104 @@ const sampleData = {
   --------------------------------
   GET THE ALL THE SKILLS OF ALL PLAYERS
   --------------------------------
+  
+  const getSkill = function(data){
+    for (const key in data) {
+      console.log(data[key].skills);
+    }
+  }
+  getSkill(sampleData)
+
 */
+
 
 /* CHALLENGE 3
   --------------------------------
-  GET THE ALL THE SKILLS OF CHARLES
+  GET THE ALL THE SKILLS OF CHARLES using LOOP(for in)
   --------------------------------
+  const charlesSkill = function(data){
+    for (const key in data) {
+      if(key !== "charles"){
+        continue;
+      }else{
+        console.log(data[key].skills);
+      }
+    }
+  }
+
+charlesSkill(sampleData)
+
 */
+
+
+
+
+
 
 /* CHALLENGE 4
   --------------------------------
   GET THE ALL THE PARENTS OF ALL PLAYERS
   --------------------------------
+
+  const getParents = function(data){
+    for (const key in data) {
+      console.log(data[key].parents);
+    }
+  }
+  getParents(sampleData)
 */
+
+
 
 /* CHALLENGE 5
   --------------------------------
-  GET THE ALL THE PARENTS OF MARK PLAYERS
+  GET THE ALL THE PARENTS OF MARK PLAYER
   --------------------------------
+
+  const markParents = function(data){
+    for (const key in data) {
+      if(key == 'mark') console.log(data[key].parents);
+    }
+  }
+  markParents(sampleData)
+  
 */
+
+
+
+
+// WHILE LOOP
+
+// let lift = 10;
+
+// while(lift < 90){
+//   console.log(lift);
+//   lift++;
+// }
+
+// Break Big Problems
+/**
+ * 1. Ask question for clear picture of the problem.
+ * 
+ * --------------------------------------------------------
+ * 
+ * 2. Divide and Conquer
+ *    - Break it into small problems by ⬇️
+ *    - Create a sub problems ⬇️
+ *    - List that needs to implement ⬇️
+ * 
+ * --------------------------------------------------------
+ * 
+ * 3. Research on how to solve the problems
+ *    - Use Google, Stackoverflow and MDN Docs
+ * 
+ * --------------------------------------------------------
+ * 
+ * 4. Write it in Pseudo Code
+ *    - To make it more readable understandable
+ *    - To know the flow on how the code works
+ * 
+ * --------------------------------------------------------
+ * 
+ */
+
