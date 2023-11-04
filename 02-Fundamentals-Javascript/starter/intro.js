@@ -409,11 +409,8 @@ charlesSkill(sampleData)
     }
   }
   markParents(sampleData)
-  
+
 */
-
-
-
 
 // WHILE LOOP
 
@@ -424,8 +421,13 @@ charlesSkill(sampleData)
 //   lift++;
 // }
 
-// Break Big Problems
+
+
+// 
 /**
+ * BREAK INTO PEACES
+ * 
+ * 
  * 1. Ask question for clear picture of the problem.
  * 
  * --------------------------------------------------------
