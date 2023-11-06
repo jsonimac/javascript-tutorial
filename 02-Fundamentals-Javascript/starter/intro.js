@@ -452,3 +452,7 @@ charlesSkill(sampleData)
  * 
  */
 
+
+// Solve Problem
+// Create sa function that will accept 2 arguments(arrays)
+// and will get the highest and lowest values(must be numbers)

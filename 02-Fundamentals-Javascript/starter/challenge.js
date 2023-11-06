@@ -73,28 +73,27 @@
 
 // ------------------------------------------
 // CHALLENGE 4
-// const bill = [22, 295, 176, 440, 37, 105, 10, 1100, 86, 52];
-// const tips = [];
-// const totals = [];
-// console.log(bill.length);
+const bill = [22, 295, 176, 440, 37, 105, 10, 1100, 86, 52];
+const tips = [];
+const totals = [];
 
 
-// const calcTip = function(bills){
-//   let tipPercent = 0;
-//   for (let i = 0; i < bills.length; i++) {
-//     tipPercent = bills[i] >= 50 && bills[i] <= 300 ? 15 : 20;
-//     tips[i] = (tipPercent / 100) * bills[i];
-//     totals[i] = tips[i] + bills[i];
-//   }
-//   console.log(`-----------BILLS--------------`);
-//   console.log(bills);
-//   console.log(`-----------TIPS--------------`);
-//   console.log(tips);
-//   console.log(`-----------TOTALS--------------`);
-//   console.log(totals);
-// }
+const calcTip = function(bills){
+  let tipPercent = 0;
+  for (let i = 0; i < bills.length; i++) {
+    tipPercent = bills[i] >= 50 && bills[i] <= 300 ? 15 : 20;
+    tips[i] = (tipPercent / 100) * bills[i];
+    totals[i] = tips[i] + bills[i];
+  }
+  console.log(`-----------BILLS--------------`);
+  console.log(bills);
+  console.log(`-----------TIPS--------------`);
+  console.log(tips);
+  console.log(`-----------TOTALS--------------`);
+  console.log(totals);
+}
 
-// calcTip(bill);
+calcTip(bill);
 
 
 
@@ -116,3 +115,23 @@
 // length of the array (because that's the number of elements).
 
 // Call the function with the totals array.
+
+// 1. Create calcAverage function that accepts array.
+// 2. Get the average of all values inside array.
+
+// const calcAverage = function(arr){
+//   let sum = 0
+//   let average = 0;
+//   for (const key of arr) {
+//     sum += key;
+//   }
+//   average = sum / arr.length;
+//   console.log(`${average} = ${sum} / ${arr.length}`);
+//   console.log(average);
+// }
+
+// calcAverage(bill)
+// calcAverage(tips)
+// calcAverage(totals)
+
+
