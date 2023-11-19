@@ -454,5 +454,49 @@ charlesSkill(sampleData)
 
 
 // Solve Problem
-// Create sa function that will accept 2 arguments(arrays)
-// and will get the highest and lowest values(must be numbers)
+/**
+ * Calculate amplitude(Highest and Lowest) in a day, sometimes there is an error.
+ */
+
+// Understand the problem.
+/**
+ * 1. Create an array of temperatures.
+ * 2. Atleast 10 length.
+ * 3. There is error sometimes
+ * 4. Get the highest and lowest temperature in array of temperature.
+ *  -> make a function named amplitude that will accept 1 parameter which is the array of temperature.
+ *  -> loop in each of the value to compare the highest and lowest.
+ */
+
+// SOLVE THEM ONE BY ONE
+
+// 1. Create an array of temperatures.
+// 2. Atleast 10 length.
+// 3. There is error sometimes
+const temperature = [12, -10, -5, 29, 'error', 2, 4, 10, 30, 4];
+
+// 4. Get the highest and lowest temperature in array of temperature.
+// -> make a function named amplitude that will accept 1 parameter which is the array of temperature.
+
+const amplitude = function(temps){
+  let high = temps[0];
+  let low = temps[0]; 
+
+  // -> loop in each of the value to compare the highest and lowest.
+  for (let i = 0; i < temps.length; i++) {
+    const currentTemp = temps[i];
+    if(typeof currentTemp === "string"){
+      continue;
+    }else{
+      if(currentTemp > high){
+        high = currentTemp;
+      }
+      if(currentTemp < low){
+        low = currentTemp;
+      }
+    }
+  }
+  console.log(`Highest: ${high} \nLowest: ${low} \nThe Amplitude is: ${high - low }`);
+}
+
+amplitude(temperature);

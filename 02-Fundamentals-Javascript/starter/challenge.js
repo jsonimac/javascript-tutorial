@@ -73,27 +73,27 @@
 
 // ------------------------------------------
 // CHALLENGE 4
-const bill = [22, 295, 176, 440, 37, 105, 10, 1100, 86, 52];
-const tips = [];
-const totals = [];
+// const bill = [22, 295, 176, 440, 37, 105, 10, 1100, 86, 52];
+// const tips = [];
+// const totals = [];
 
 
-const calcTip = function(bills){
-  let tipPercent = 0;
-  for (let i = 0; i < bills.length; i++) {
-    tipPercent = bills[i] >= 50 && bills[i] <= 300 ? 15 : 20;
-    tips[i] = (tipPercent / 100) * bills[i];
-    totals[i] = tips[i] + bills[i];
-  }
-  console.log(`-----------BILLS--------------`);
-  console.log(bills);
-  console.log(`-----------TIPS--------------`);
-  console.log(tips);
-  console.log(`-----------TOTALS--------------`);
-  console.log(totals);
-}
+// const calcTip = function(bills){
+//   let tipPercent = 0;
+//   for (let i = 0; i < bills.length; i++) {
+//     tipPercent = bills[i] >= 50 && bills[i] <= 300 ? 15 : 20;
+//     tips[i] = (tipPercent / 100) * bills[i];
+//     totals[i] = tips[i] + bills[i];
+//   }
+//   console.log(`-----------BILLS--------------`);
+//   console.log(bills);
+//   console.log(`-----------TIPS--------------`);
+//   console.log(tips);
+//   console.log(`-----------TOTALS--------------`);
+//   console.log(totals);
+// }
 
-calcTip(bill);
+// calcTip(bill);
 
 
 
