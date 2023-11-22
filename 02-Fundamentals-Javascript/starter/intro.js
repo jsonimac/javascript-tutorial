@@ -473,30 +473,91 @@ charlesSkill(sampleData)
 // 1. Create an array of temperatures.
 // 2. Atleast 10 length.
 // 3. There is error sometimes
-const temperature = [12, -10, -5, 29, 'error', 2, 4, 10, 30, 4];
+// const temperature = [12, -10, -5, 29, 'error', 2, 4, 10, 30, 4];
 
 // 4. Get the highest and lowest temperature in array of temperature.
 // -> make a function named amplitude that will accept 1 parameter which is the array of temperature.
 
-const amplitude = function(temps){
-  let high = temps[0];
-  let low = temps[0]; 
+// const amplitude = function(temps){
+//   let high = temps[0];
+//   let low = temps[0]; 
 
-  // -> loop in each of the value to compare the highest and lowest.
-  for (let i = 0; i < temps.length; i++) {
-    const currentTemp = temps[i];
-    if(typeof currentTemp === "string"){
-      continue;
-    }else{
-      if(currentTemp > high){
-        high = currentTemp;
-      }
-      if(currentTemp < low){
-        low = currentTemp;
-      }
-    }
-  }
-  console.log(`Highest: ${high} \nLowest: ${low} \nThe Amplitude is: ${high - low }`);
-}
+//   // -> loop in each of the value to compare the highest and lowest.
+//   for (let i = 0; i < temps.length; i++) {
+//     const currentTemp = temps[i];
+//     if(typeof currentTemp === "string"){
+//       continue;
+//     }else{
+//       if(currentTemp > high){
+//         high = currentTemp;
+//       }
+//       if(currentTemp < low){
+//         low = currentTemp;
+//       }
+//     }
+//   }
+//   console.log(`Highest: ${high} \nLowest: ${low} \nThe Amplitude is: ${high - low }`);
+// }
 
-amplitude(temperature);
+// amplitude(temperature);
+
+
+// -----------------------------------------------------
+// Debugging with Console and Breakpoints
+
+// Calcualte Kelvin
+
+// What is kelvin
+// --> Adding value in 273
+
+// Break into pieces
+// Write Pseudo Code
+
+// Calculate kalvin with function
+// accepts no parameter
+// promps and gets value
+// return value that already added with 270.
+
+// const kelvin = function(){
+//   const measure = {
+//     type: 'temp',
+//     unit: 'cels',
+//     value: prompt('Degress cels: ')
+//   }
+//   const kelvin = Number(measure.value) + 273;
+//   return `value is ${measure.value} and the kelvin is ${kelvin}`
+// }
+// console.log(kelvin());
+
+// console.log('hello there');
+// console.warn('hello there');
+// console.error('hello there');
+// console.table('hello there'); Good to use if you log objects
+
+
+// --------------------------------------------------
+// Use Debugger
+// const amplitude = function(temps){
+//   let high = 0;
+//   let low = 0; 
+
+//   // -> loop in each of the value to compare the highest and lowest.
+//   for (let i = 0; i < temps.length; i++) {
+//     const currentTemp = temps[i];
+//     if(typeof currentTemp === "string"){
+//       continue;
+//     }else{
+//       if(currentTemp > high){
+//         high = currentTemp;
+//       }
+//       if(currentTemp < low){
+//         low = currentTemp;
+//       }
+//     }
+//   }
+//   console.log(`Highest: ${high} \nLowest: ${low} \nThe Amplitude is: ${high - low }`);
+// }
+// const temperature = [12, 29, 'error', 2, 4, 10, 30, 4];
+
+// amplitude(temperature)
+

@@ -134,4 +134,38 @@
 // calcAverage(tips)
 // calcAverage(totals)
 
+// --------------------------
+//Challenge 1
 
+// Understand the problem
+// Break into pieces
+// Solve them one by one.
+
+// Understand the problem.
+// Create a forecast temperature
+
+// Break into pieces
+/**
+ * 1. Create a function that will accept array(arr)
+ * 2. logs this "... (celcius) in (number) day/s"
+ *  - loop over the array to display the value
+ *  - use .length - 1 to display the number of days
+ *  - use if to display "s" if number of day is 1.
+ */
+
+const printForecast = function(arr){
+  let isSingular;
+  let numberOfDays;
+  let sentence = '';
+  for (const value of arr) {
+    isSingular = arr.indexOf(value) == 0 ? '' : 's';
+    numberOfDays = arr.indexOf(value) + 1;
+    sentence = sentence + `... ${value}°C in ${numberOfDays} day${isSingular} `;
+  }
+  console.log(sentence);
+}
+
+const data = [17, 21, 23];
+const data2 = [12, 5, -5, 0, 4];
+printForecast(data)
+printForecast(data2)
