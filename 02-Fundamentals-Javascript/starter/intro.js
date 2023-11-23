@@ -113,12 +113,12 @@
 // ---------------------------------------------
 // OBJECT
 
-function ageCal(year){
-  return 2023 - year;
-}
-const gender = (gender) => {
-  return gender;
-}
+// function ageCal(year){
+//   return 2023 - year;
+// }
+// const gender = (gender) => {
+//   return gender;
+// }
 
 
 // const jessie = {
@@ -195,5 +195,369 @@ const gender = (gender) => {
 // console.log(jessie['newNum']);
 // console.log(jessie.summary());
 
+// Object End lesson
+// ---------------------------------------------
 
+
+
+// ---------------------------------------------
+// Loops Lessons
+// const rip = 10;
+
+// for (let i = 0; i < rip; i++) {
+//   console.log(`This is ${i}`);
+// }
+
+// Loop in arrays
+// const jessie = [
+//   'Jessie',
+//   'Caminos',
+//   2023 - 1999,
+//   'Boy'
+// ]
+
+// for (let i = 0; i < jessie.length; i++) {
+//   console.log(jessie[i]);
+// }
+
+//Loop using Break and Continue
+// const jessie = [
+//   'Jessie',
+//   'Caminos',
+//   2023 - 1999,
+//   'Boy'
+// ]
+
+// CONTINUE => skip the value or "jumps over" the loop
+// Ex. if value is not a string then it will skip or "Jumps over" the loop
+// for (let i = 0;  i< jessie.length; i++) {
+//   if(typeof jessie[i] !== 'string'){
+//     continue;
+//   }
+//   console.log(jessie[i]);
+// }
+
+// BREAK => end the loop or "Jumps out" the loop
+// for (let i = 0;  i< jessie.length; i++) {
+//   if(typeof jessie[i] !== 'string'){
+//     break;
+//   }
+//   console.log(jessie[i]);
+// }
+
+// Loop Backwards
+// --------------------------------------------
+// CONTINUE AFTER STUDYING OBJECT MANIPULATION
+// --------------------------------------------
+// const jessie = [
+//   'Jessie',
+//   'Caminos',
+//   2023 - 1999,
+//   'Boy'
+// ]
+
+// for (let i = jessie.length - 1; i >= 0; i--) {
+//   console.log(jessie[i]);
+// }
+
+// const exercise = ['Biceps', 'Arm', 'Legs', 'Abdominal'];
+
+// for (let i = 0; i < exercise.length; i++) {
+
+//   for (let j = 0; j < 5; j++) {
+//     let ord = '';
+//     if(i+1 == 1){
+//       ord = 'st'
+//     }else if(i+1 == 2){
+//       ord = 'nd'
+//     }else if(i+1 == 3){
+//       ord = 'rd'
+//     }else{
+//       ord = 'th'
+//     }
+//     console.log(`The ${i+1}${ord} excercise is ${exercise[i]} => rip ${j+1}`)
+//   }
+
+// }
+
+// --------------------------------------------
+// Loop over OBJECT 
+
+const sampleData = {
+  jessie: { 
+    height: 174, 
+    weight: 69, 
+    skills: ['swimm', 'pull ups'],
+    parents: {
+      mother: 'clara',
+      father: 'richmon'
+    }
+  },
+  mark: { 
+    height: 165, 
+    weight: 43, 
+    skills: ['travel', 'girlss'],
+    parents: {
+      mother: 'jaden',
+      father: 'josh'
+    }  
+  },
+  clark: { 
+    height: 172, 
+    weight: 53, 
+    skills: ['coffee', 'coding'],
+    parents: {
+      mother: 'blane',
+      father: 'bron'
+    }  
+  },
+  charles: { 
+    height: 189, 
+    weight: 72, 
+    skills: ['sleep', 'eating'],
+    parents: {
+      mother: 'mary',
+      father: 'mike'
+    }
+  },
+}
+
+/* CHALLENGE 1
+  --------------------------------
+  GET THE AVERAGE OF THE HEIGHT
+  --------------------------------
+*/
+// const calcHeight = function(data){
+//   let total = 0;
+//   let ave = 0;
+//   let length = Object.keys(data).length;
+//   for (const key in data) {
+//     console.log(`${total} = ${total} + ${data[key].height}`)
+//     total += data[key].height
+//   }
+//   console.log(`-----------------------------`);
+//   console.log(`${ave} = ${total} / ${length}`);
+//   ave = total / length;
+//   console.log(`-----------------------------`);
+//   console.log(ave);
+// }
+// calcHeight(sampleData)
+// --------------------------------
+
+
+/* CHALLENGE 2
+  --------------------------------
+  GET THE ALL THE SKILLS OF ALL PLAYERS
+  --------------------------------
+  
+  const getSkill = function(data){
+    for (const key in data) {
+      console.log(data[key].skills);
+    }
+  }
+  getSkill(sampleData)
+
+*/
+
+
+/* CHALLENGE 3
+  --------------------------------
+  GET THE ALL THE SKILLS OF CHARLES using LOOP(for in)
+  --------------------------------
+  const charlesSkill = function(data){
+    for (const key in data) {
+      if(key !== "charles"){
+        continue;
+      }else{
+        console.log(data[key].skills);
+      }
+    }
+  }
+
+charlesSkill(sampleData)
+
+*/
+
+
+
+
+
+
+/* CHALLENGE 4
+  --------------------------------
+  GET THE ALL THE PARENTS OF ALL PLAYERS
+  --------------------------------
+
+  const getParents = function(data){
+    for (const key in data) {
+      console.log(data[key].parents);
+    }
+  }
+  getParents(sampleData)
+*/
+
+
+
+/* CHALLENGE 5
+  --------------------------------
+  GET THE ALL THE PARENTS OF MARK PLAYER
+  --------------------------------
+
+  const markParents = function(data){
+    for (const key in data) {
+      if(key == 'mark') console.log(data[key].parents);
+    }
+  }
+  markParents(sampleData)
+
+*/
+
+// WHILE LOOP
+
+// let lift = 10;
+
+// while(lift < 90){
+//   console.log(lift);
+//   lift++;
+// }
+
+
+
+// 
+/**
+ * BREAK INTO PEACES
+ * 
+ * 
+ * 1. Ask question for clear picture of the problem.
+ * 
+ * --------------------------------------------------------
+ * 
+ * 2. Divide and Conquer
+ *    - Break it into small problems by ⬇️
+ *    - Create a sub problems ⬇️
+ *    - List that needs to implement ⬇️
+ * 
+ * --------------------------------------------------------
+ * 
+ * 3. Research on how to solve the problems
+ *    - Use Google, Stackoverflow and MDN Docs
+ * 
+ * --------------------------------------------------------
+ * 
+ * 4. Write it in Pseudo Code
+ *    - To make it more readable understandable
+ *    - To know the flow on how the code works
+ * 
+ * --------------------------------------------------------
+ * 
+ */
+
+
+// Solve Problem
+/**
+ * Calculate amplitude(Highest and Lowest) in a day, sometimes there is an error.
+ */
+
+// Understand the problem.
+/**
+ * 1. Create an array of temperatures.
+ * 2. Atleast 10 length.
+ * 3. There is error sometimes
+ * 4. Get the highest and lowest temperature in array of temperature.
+ *  -> make a function named amplitude that will accept 1 parameter which is the array of temperature.
+ *  -> loop in each of the value to compare the highest and lowest.
+ */
+
+// SOLVE THEM ONE BY ONE
+
+// 1. Create an array of temperatures.
+// 2. Atleast 10 length.
+// 3. There is error sometimes
+// const temperature = [12, -10, -5, 29, 'error', 2, 4, 10, 30, 4];
+
+// 4. Get the highest and lowest temperature in array of temperature.
+// -> make a function named amplitude that will accept 1 parameter which is the array of temperature.
+
+// const amplitude = function(temps){
+//   let high = temps[0];
+//   let low = temps[0]; 
+
+//   // -> loop in each of the value to compare the highest and lowest.
+//   for (let i = 0; i < temps.length; i++) {
+//     const currentTemp = temps[i];
+//     if(typeof currentTemp === "string"){
+//       continue;
+//     }else{
+//       if(currentTemp > high){
+//         high = currentTemp;
+//       }
+//       if(currentTemp < low){
+//         low = currentTemp;
+//       }
+//     }
+//   }
+//   console.log(`Highest: ${high} \nLowest: ${low} \nThe Amplitude is: ${high - low }`);
+// }
+
+// amplitude(temperature);
+
+
+// -----------------------------------------------------
+// Debugging with Console and Breakpoints
+
+// Calcualte Kelvin
+
+// What is kelvin
+// --> Adding value in 273
+
+// Break into pieces
+// Write Pseudo Code
+
+// Calculate kalvin with function
+// accepts no parameter
+// promps and gets value
+// return value that already added with 270.
+
+// const kelvin = function(){
+//   const measure = {
+//     type: 'temp',
+//     unit: 'cels',
+//     value: prompt('Degress cels: ')
+//   }
+//   const kelvin = Number(measure.value) + 273;
+//   return `value is ${measure.value} and the kelvin is ${kelvin}`
+// }
+// console.log(kelvin());
+
+// console.log('hello there');
+// console.warn('hello there');
+// console.error('hello there');
+// console.table('hello there'); Good to use if you log objects
+
+
+// --------------------------------------------------
+// Use Debugger
+// const amplitude = function(temps){
+//   let high = 0;
+//   let low = 0; 
+
+//   // -> loop in each of the value to compare the highest and lowest.
+//   for (let i = 0; i < temps.length; i++) {
+//     const currentTemp = temps[i];
+//     if(typeof currentTemp === "string"){
+//       continue;
+//     }else{
+//       if(currentTemp > high){
+//         high = currentTemp;
+//       }
+//       if(currentTemp < low){
+//         low = currentTemp;
+//       }
+//     }
+//   }
+//   console.log(`Highest: ${high} \nLowest: ${low} \nThe Amplitude is: ${high - low }`);
+// }
+// const temperature = [12, 29, 'error', 2, 4, 10, 30, 4];
+
+// amplitude(temperature)
 

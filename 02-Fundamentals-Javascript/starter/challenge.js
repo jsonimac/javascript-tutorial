@@ -42,26 +42,130 @@
 
 //--------------------------------------------------
 // CHALLENGE 3
-const john = {
-  fullName: 'John Smith',
-  mass: 92,
-  height: 1.95,
-  calcBMI: function(){
-    this.BMI = this.mass / (this.height ** 2);
-    return this.BMI;
+// const john = {
+//   fullName: 'John Smith',
+//   mass: 92,
+//   height: 1.95,
+//   calcBMI: function(){
+//     this.BMI = this.mass / (this.height ** 2);
+//     return this.BMI;
+//   }
+// }
+
+// const mark = {
+//   fullName: 'Mark Miller',
+//   mass: 78,
+//   height: 1.69,
+//   calcBMI: function(){
+//     this.BMI = this.mass / (this.height ** 2);
+//     return this.BMI;
+//   }
+// }
+
+// const result = mark.calcBMI() > john.calcBMI() ? `
+//     ${mark.fullName}'s BMI(${mark.calcBMI().toFixed(2)}) is higher than ${john.fullName}' (${john.calcBMI().toFixed(2)}) 
+//   ` : `
+//     ${john.fullName}'s BMI(${john.calcBMI().toFixed(2)}) is higher than ${mark.fullName}' (${mark.calcBMI().toFixed(2)}) 
+//   `;
+
+// console.log(result);
+
+
+// ------------------------------------------
+// CHALLENGE 4
+// const bill = [22, 295, 176, 440, 37, 105, 10, 1100, 86, 52];
+// const tips = [];
+// const totals = [];
+
+
+// const calcTip = function(bills){
+//   let tipPercent = 0;
+//   for (let i = 0; i < bills.length; i++) {
+//     tipPercent = bills[i] >= 50 && bills[i] <= 300 ? 15 : 20;
+//     tips[i] = (tipPercent / 100) * bills[i];
+//     totals[i] = tips[i] + bills[i];
+//   }
+//   console.log(`-----------BILLS--------------`);
+//   console.log(bills);
+//   console.log(`-----------TIPS--------------`);
+//   console.log(tips);
+//   console.log(`-----------TOTALS--------------`);
+//   console.log(totals);
+// }
+
+// calcTip(bill);
+
+
+
+// Solve the BONUS
+
+// BONUS:
+
+// Write a function calcAverage which takes an array called arr as an argument. 
+// This function calculates the average of all numbers in the given array. 
+// This is a DIFFICULT challenge (we haven't done this before)! Here is how to solve it if you feel like it:
+
+// First, you will need to add up all values in the array. 
+// To do the addition, start by creating a variable sum that starts at 0. 
+// Then loop over the array using a for loop. In each iteration, 
+// add the current value to the sum variable. This way, by the end of the loop, 
+// you have all values added together.
+
+// To calculate the average, divide the sum you calculated before by the 
+// length of the array (because that's the number of elements).
+
+// Call the function with the totals array.
+
+// 1. Create calcAverage function that accepts array.
+// 2. Get the average of all values inside array.
+
+// const calcAverage = function(arr){
+//   let sum = 0
+//   let average = 0;
+//   for (const key of arr) {
+//     sum += key;
+//   }
+//   average = sum / arr.length;
+//   console.log(`${average} = ${sum} / ${arr.length}`);
+//   console.log(average);
+// }
+
+// calcAverage(bill)
+// calcAverage(tips)
+// calcAverage(totals)
+
+// --------------------------
+//Challenge 1
+
+// Understand the problem
+// Break into pieces
+// Solve them one by one.
+
+// Understand the problem.
+// Create a forecast temperature
+
+// Break into pieces
+/**
+ * 1. Create a function that will accept array(arr)
+ * 2. logs this "... (celcius) in (number) day/s"
+ *  - loop over the array to display the value
+ *  - use .length - 1 to display the number of days
+ *  - use if to display "s" if number of day is 1.
+ */
+
+const printForecast = function(arr){
+  let isSingular;
+  let numberOfDays;
+  let sentence = '';
+  for (const value of arr) {
+    isSingular = arr.indexOf(value) == 0 ? '' : 's';
+    numberOfDays = arr.indexOf(value) + 1;
+    sentence = sentence + `... ${value}°C in ${numberOfDays} day${isSingular} `;
   }
+  console.log(sentence);
 }
 
-const mark = {
-  fullName: 'Mark Miller',
-  mass: 78,
-  height: 1.69,
-  calcBMI: function(){
-    this.BMI = this.mass / (this.height ** 2);
-    return this.BMI;
-  }
-}
-
-const result = mark.calcBMI() > john.calcBMI() ? '' : '';
-
-console.log(result);
+const data = [17, 21, 23];
+const data2 = [12, 5, -5, 0, 4];
+printForecast(data)
+printForecast(data2)
