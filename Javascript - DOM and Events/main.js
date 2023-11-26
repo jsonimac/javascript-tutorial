@@ -13,11 +13,13 @@
 // -----------------
 //Adding events in button
 const secretNum = Math.trunc(Math.random()*20);
+let score = Number(document.querySelector('.score').textContent);
 console.log(secretNum)
+document.querySelector('.number').textContent = secretNum;
 
 const handleEvent = function(){
   const value = Number(document.querySelector('.guess').value);
-  if(value == 0){
+  if(!value){
     document.querySelector('.message').textContent = '⛔ No number'
   }else{
     if(value === secretNum){
@@ -26,12 +28,49 @@ const handleEvent = function(){
       document.querySelector('.again').textContent = '🎉 Success!'
       console.log('nice');
     }else{
-      document.querySelector('.message').textContent = 'Opps wrong number'
-      value > secretNum ? document.querySelector('.again').textContent = 'Too high' : document.querySelector('.again').textContent = 'Too Low'
-      console.log('wrong');
-
-    }  
+      document.querySelector('.message').textContent = 'Opps wrong number';
+      if(value > secretNum){
+        document.querySelector('.again').textContent = 'Too high'
+        score = score - 1;
+        console.log(score);
+      }else{
+        document.querySelector('.again').textContent = 'Too Low'
+        score = score - 1;
+        console.log(score);
+      }
+    }
   }
 }
 
-document.querySelector('.check').addEventListener('click', handleEvent);
+
+
+// Guard Clause
+// Uses only if statement that only returns 
+const handleEventBetter = function(){
+  const value = Number(document.querySelector('.guess').value);
+  if(!value){
+    document.querySelector('.message').textContent = '⛔ No number'
+    return
+  }
+  if(value < secretNum){
+    document.querySelector('.again').textContent = 'Too Low'
+    score = score - 1;
+    console.log(score);
+    return
+  }
+  if(value > secretNum){
+    document.querySelector('.again').textContent = 'Too High'
+    score = score - 1;
+    console.log(score);
+    return
+  }
+
+  document.querySelector('.message').textContent = '🎉 Nice'
+  document.querySelector('.number').textContent = '🎉 Nice One!'
+  document.querySelector('.again').textContent = '🎉 Success!'
+  console.log('nice');
+  return
+}
+
+document.querySelector('.check').addEventListener('click', handleEventBetter);
+
