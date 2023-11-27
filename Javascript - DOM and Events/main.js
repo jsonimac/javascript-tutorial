@@ -79,7 +79,9 @@ const handleEventBetter = function(){
 }
 
 const handleReset = function(){
-  const secretNum = Math.trunc(Math.random()*20);
+  secretNum = Math.trunc(Math.random()*20);
+
+  //reassign value to 20 again by calling and assign 20 as new value
   score = 20;
   console.log(secretNum);
   document.querySelector('body').style.backgroundColor = '#222';
