@@ -95,3 +95,9 @@ const handleReset = function(){
 document.querySelector('.again').addEventListener('click', handleReset);
 document.querySelector('.check').addEventListener('click', handleEventBetter);
 
+// TODO: implement high score
+// ex. current score is 10.
+// after resetting you got a new score with 15
+// the 15 is now the new highscore.
+// if the new score will be less than the current score the current score will not be decrease
+// please implement
