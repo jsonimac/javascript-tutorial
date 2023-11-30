@@ -10,14 +10,13 @@ const buttonClose = document.querySelector('.close-modal')
 const buttonOpen = getDom('.show-modal')
 
 // Loop in for loop
-for (let i = 0; i < buttonOpen.length; i++) {
-  buttonOpen[i].addEventListener('click', handlOpen)
-}
+// for (let i = 0; i < buttonOpen.length; i++) {
+//   buttonOpen[i].addEventListener('click', handlOpen)
+// }
 function handlOpen() {
   modal.classList.remove('hidden');
   overlay.classList.remove('hidden');
 }
-
 // close modal
 buttonClose.addEventListener('click', handleClose);
 overlay.addEventListener('click', handleClose);
@@ -27,7 +26,11 @@ function handleClose(){
   overlay.classList.add('hidden');
 }
 
+document.addEventListener('keypress', function(){
+  console.log(`you press somting`);
+});
 
 // Loop in for of
-
-
+for (const i of buttonOpen) {
+  i.addEventListener('click', handlOpen)
+}
