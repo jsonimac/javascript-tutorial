@@ -21,30 +21,23 @@ for (const i of buttonOpen) {
 // }
 // ------------------------------------------------------------
 
-
 function handlOpen() {
   modal.classList.remove('hidden');
   overlay.classList.remove('hidden');
 }
+
+
+// --- Close Modal ---
+// close modal
+// buttonClose.addEventListener('click', handleClose);
+// overlay.addEventListener('click', handleClose);
+
 
 function handleClose(){
   modal.classList.add('hidden');
   overlay.classList.add('hidden');
 }
 
-// close modal
-// buttonClose.addEventListener('click', handleClose);
-// overlay.addEventListener('click', handleClose);
-
-
 document.addEventListener('keydown', function(e){
-  e.key.match('Escape') ? handleClose : ''
+  e.key.match('Escape') == "Escape" ? handleClose() : ''
 });
-
-
-
-
-// function handleKeypress(e) {
-//   let keyValue = e.key == "Escape" ? 'You enter escape' : 'Wrong Key'
-//   console.log(keyValue);
-// }
