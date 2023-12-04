@@ -1,55 +1,83 @@
 'use strict';
 
+// 1. Implement reset
 let score0 = document.querySelector('#score--0');
 let score1 = document.querySelector('#score--1');
-let dice = document.querySelector('.dice')
+let current0 = document.querySelector('#current--0');
+let current1 = document.querySelector('#current--1');
+let dice = document.querySelector('.dice');
+let players = document.querySelectorAll('.player');
+let player0 = document.querySelector('.player--0');
+let player1 = document.querySelector('.player--1');
+
+
 
 document.querySelector('.btn--new').addEventListener('click', reset);
 function reset(){
   score0.textContent = 0;
   score1.textContent = 0;
+  current0.textContent = 0;
+  current1.textContent = 0;
   dice.classList.add('hide');
+  rollScore = 0;
+  player0.classList.add('player--active');
+  player1.classList.remove('player--active');
+
 }
 
-
-
-//TODO: Implement the logic of the players by swithing and adding their scores
-
-document.querySelector('.btn--hold').addEventListener('click', onHold);
-let players = document.querySelectorAll('.player')
-function onHold(){
-  for (const i of players) {
-    i.classList.contains('player--active') && i.classList.contains('player--0')
-    ? i.classList.remove('player--active')
-    : i.classList.add('player--active')
-  }
-}
-
-document.querySelector('.btn--roll').addEventListener('click', getRandomDice);
-let currentScore0 = document.querySelector('#current--0');
-let currentScore1 = document.querySelector('#current--1');
-let score = 0;
-function getRandomDice(){
-
-  //1. Generate dice number
-  const randDice = Math.trunc(Math.random()*6)+1
-
-  //2 Display the dice.
+// 2. Impletment Roll Dice
+document.querySelector('.btn--roll').addEventListener('click', rollDice);
+let rollScore = 0;
+let activePlayer = 0;
+function rollDice(){
   dice.classList.remove('hide');
-  dice.src = `dice-${randDice}.png`;
+  let randomDice = Math.trunc(Math.random()*6)+1;
 
-  //3. Check if the dice is == 1
-  // ? Reset the score and move to other player
-  // : Add the dice to the current score
-  if(randDice == 1){
-    score = 0
-    currentScore0.textContent = score;
-    return onHold();
+  if(randomDice == 1){
+    rollScore = 0;
+    document.querySelector(`#current--${activePlayer}`).textContent = rollScore;
+    activePlayer = activePlayer == 1 ? 0 : 1
+
+    for (const player of players) {
+      player.classList.contains('player--active')
+      ? player.classList.remove('player--active')
+      : player.classList.add('player--active')
+    }
+    
   }
 
-  score += randDice;
-  currentScore0.textContent = score
+  if(player0.classList.contains('player--active')){
+    rollScore += randomDice;
+    current0.textContent = rollScore;
+  }
+  if(player1.classList.contains('player--active')){
+    rollScore += randomDice;
+    current1.textContent = rollScore;
+  }
 
-  //4. Display the new score
+  document.querySelector('.dice').src = `dice-${randomDice}.png`;
 }
 
+// 3. Implement Hold
+document.querySelector('.btn--hold').addEventListener('click', holdScore);
+function holdScore(){
+  let addScore = Number(document.querySelector(`#current--${activePlayer}`).textContent);
+  let total = Number(document.querySelector(`#score--${activePlayer}`).textContent);
+  total += addScore;
+  document.querySelector(`#score--${activePlayer}`).textContent = total;
+  rollScore = 0;
+  document.querySelector(`#current--${activePlayer}`).textContent = 0;
+  activePlayer = activePlayer == 1 ? 0 : 1
+  
+  for (const player of players) {
+    player.classList.contains('player--active')
+    ? player.classList.remove('player--active')
+    : player.classList.add('player--active')
+  }
+
+  //Display the winner when the score gets >= 100
+  let activeP = Number(document.querySelector(`#score--${activePlayer}`).textContent)
+  if(activeP >= 100){
+    document.querySelector(`#name--${activePlayer}`).textContent = `Player ${activePlayer} Wins`;
+  }
+}
