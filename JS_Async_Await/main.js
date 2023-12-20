@@ -96,6 +96,8 @@
 // const getJson = function(url){
 //   return fetch(`${url}`)
 //     .then(response => {
+// 
+//       // The if handles the fetch method to reject the request
 //       if(!response.ok){
 //         throw new Error('country not found')
 //       }
@@ -129,3 +131,72 @@
 // document.querySelector('.btn-country').addEventListener('click', function(){
 //   getdata('canada');
 // })
+
+// Create function that accepts lat and lng
+// Reverse geocode from coordinates to location
+// Log the message to console "You are in philippines"
+// Chain catch method to log if there is error
+// Make error handlers to catch the errors that can't be handle by fetch method
+// -> make if statement inside response method
+
+// const whereI = function(lat, lng){
+//   fetch(`https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${lat}&longitude=${lng}`)
+//   .then(response => {
+//     if(!response.ok){
+//       throw new Error('No found response / response = false');
+//     }
+//     return response.json()
+//   })
+//   .then(data => {
+//     const location = data.countryName;
+    
+    // Iterate and get all the values of all the name attribute
+    // for (const iterator of location) {
+    // console.log(iterator.name);
+    // }
+//     console.log(`You are in the ${location}`);
+//   }).
+//   catch(err => {
+//     console.log(err.message);
+//   })
+// }
+
+// whereI(12.8797, 121.7740);
+// whereI(52.508, 13.381);
+// whereI(19.037, 72.837);
+
+
+
+// document.querySelector('.btn-country').addEventListener('click', function(){
+// })
+
+// let result = document.querySelector('.output');
+// let img = document.querySelector('img');
+// img.src = 'jess.jpg';
+
+// function last(){
+//   console.log('hellor theyre');
+// }
+
+// function names() {
+//   last()
+// }
+
+
+// fetch('https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=12.8797&longitude=121.7740')
+//   .then(function(res) {
+//     console.log(res);
+//   })
+//   .then(data =>{
+
+//   })
+
+// names()
+
+
+// img.addEventListener('load', () => {
+//   console.log('Hello click');
+// });
+
+
+
