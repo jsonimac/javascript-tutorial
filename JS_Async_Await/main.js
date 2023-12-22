@@ -96,6 +96,8 @@
 // const getJson = function(url){
 //   return fetch(`${url}`)
 //     .then(response => {
+// 
+//       // The if handles the fetch method to reject the request
 //       if(!response.ok){
 //         throw new Error('country not found')
 //       }
@@ -129,3 +131,251 @@
 // document.querySelector('.btn-country').addEventListener('click', function(){
 //   getdata('canada');
 // })
+
+// Create function that accepts lat and lng
+// Reverse geocode from coordinates to location
+// Log the message to console "You are in philippines"
+// Chain catch method to log if there is error
+// Make error handlers to catch the errors that can't be handle by fetch method
+// -> make if statement inside response method
+
+// const whereI = function(lat, lng){
+//   fetch(`https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${lat}&longitude=${lng}`)
+//   .then(response => {
+//     if(!response.ok){
+//       throw new Error('No found response / response = false');
+//     }
+//     return response.json()
+//   })
+//   .then(data => {
+//     const location = data.countryName;
+    
+    // Iterate and get all the values of all the name attribute
+    // for (const iterator of location) {
+    // console.log(iterator.name);
+    // }
+//     console.log(`You are in the ${location}`);
+//   }).
+//   catch(err => {
+//     console.log(err.message);
+//   })
+// }
+
+// whereI(12.8797, 121.7740);
+// whereI(52.508, 13.381);
+// whereI(19.037, 72.837);
+
+
+
+// document.querySelector('.btn-country').addEventListener('click', function(){
+// })
+
+// let result = document.querySelector('.output');
+// let img = document.querySelector('img');
+// img.src = 'jess.jpg';
+
+//   function last(){
+//     console.log('hellor they're');
+//   }
+
+//   function names() {
+//     last()
+//   }
+
+
+//   fetch('https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=12.8797&longitude=121.7740')
+//   .then(function(res) {
+//     console.log(res);
+//   })
+//   .then(data =>{
+
+//   })
+
+//   names()
+
+
+//   img.addEventListener('load', () => {
+//     console.log('Hello click');
+//   });
+
+
+// Make a sample promise assigned to a variable
+// let lottery = new Promise((resolve, rejects)=>{
+//   // pic a randomp number from 1 - 0 
+//   let random = Math.random();
+//   console.log(random);
+//   console.log('ON going PCSO....');
+
+//   // Make times 4 seconds then execute the code.
+//   setTimeout(function(){
+
+//     // Check if the random number if not greater 5 then loss
+//     if(!(random >= 0.5)){
+//       return rejects('You losss')
+//     }
+
+//     // Return resolve if the guard clause is not satisfied.
+//     return resolve('The number is greater then 0.5')
+//   }, 4000)
+
+// })
+
+
+// lottery
+// // use then method to retrive the resolve
+//   .then(reslv => {
+//     console.log(reslv);
+//   })
+// // use catch method to get rejected.
+//   .catch(rejc => {
+//     console.log(rejc);
+//   })
+
+// -----------------------------------
+// Promisifying
+// const hulat = function(seconds){
+//   const promise = new Promise((resolve) => {
+//     setTimeout(function(){
+//       resolve(`waited ${seconds}`)
+//     }, seconds * 1000)
+//   }); 
+//   return promise;
+// }
+
+// hulat(3).then(response => {
+//   console.log(response);
+
+//   // use return to pass the value to the next "then" method. 
+//   return hulat(2)
+// })
+// .then(res => {
+//   console.log(res);
+
+//   // return another hulat
+//   return hulat(4)
+// })
+// .then(res =>{
+//   console.log(res);
+// })
+
+
+// Create google maps
+// Add googlemaps
+// Initialize and add the map
+// let map;
+
+// async function initMap(latitude, lngitude) {
+//   // The location of Uluru
+//   const position = { lat: latitude, lng: lngitude };
+//   // Request needed libraries.
+//   //@ts-ignore
+//   const { Map } = await google.maps.importLibrary("maps");
+//   const { AdvancedMarkerElement } = await google.maps.importLibrary("marker");
+
+//   // The map, centered at Uluru
+//   map = new Map(document.getElementById("whereI"), {
+//     zoom: 4,
+//     center: position,
+//     mapId: "DEMO_MAP_ID",
+//   });
+
+//   // The marker, positioned at Uluru
+//   const marker = new AdvancedMarkerElement({
+//     map: map,
+//     position: position,
+//     title: "Uluru",
+//   });
+// }
+
+// End of google maps
+
+
+// ----------------------
+// Keep promisifying all
+// const currentlocation = function(){
+//   const location = new Promise((resolve, reject) => {
+//     navigator.geolocation.getCurrentPosition(resolve, reject)
+//   })
+//   return location;
+// }
+
+// const getLocation =  function(){
+//   currentlocation().then(res => {
+//     let {latitude, longitude} = res.coords
+//     return fetch(`https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${latitude}&longitude=${longitude}`)
+//   })
+//   .then(res => {
+//     return res.json();
+//   })
+//   .then(data => {
+//     // return initMap(data.latitude, data.longitude);
+//   })
+// }
+// console.log();
+
+// display the maps
+// getLocation();
+// initMap(20.910245, 17.853431);
+
+
+//TODO: Challenge.
+// Make image promise
+// display image in 2 sec
+// hide image for 2 sec
+// dislay another image
+// hide again the image 
+// use promise apply the lessons learned.
+
+const imageContainer = document.querySelector('.image-container')
+
+const makeImage = function(path){
+  const imageEl = document.createElement('img');
+  const loadedImage = new Promise((resolve, reject)=>{
+    imageEl.src = path;
+    // listen if the image event is load
+    imageEl.addEventListener('load', function(){
+      imageContainer.append(imageEl)
+      resolve(imageEl);
+    });
+
+    // listen if the image event is error 
+    imageEl.addEventListener('error', function(){
+      reject(new Error('No Image found'));
+    });
+  })
+
+  return loadedImage;
+}
+
+const wait = function(seconds){
+  const waited = new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve()
+    }, seconds * 1000);
+  });
+  return waited
+}
+
+let imge;
+makeImage('./jess.jpg')
+  .then(res => {
+    imge = res
+    console.log('displayed');
+    return wait(2)
+  })
+  .then(() => {
+    console.log('hide');
+    imge.style.display = "none"
+    return makeImage('./gwapo.jpg')
+  })
+  .then((res)=>{
+    imge = res
+    return wait(2)
+  })
+  .then(()=>{
+    imge.style.display = "none"
+  })
+  .catch(err => {
+    console.error(err);
+  })
+  
