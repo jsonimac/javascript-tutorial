@@ -132,12 +132,15 @@
 //   getdata('canada');
 // })
 
+
+// -----------------------------------------------------
 // Create function that accepts lat and lng
 // Reverse geocode from coordinates to location
 // Log the message to console "You are in philippines"
 // Chain catch method to log if there is error
 // Make error handlers to catch the errors that can't be handle by fetch method
 // -> make if statement inside response method
+// -----------------------------------------------------
 
 // const whereI = function(lat, lng){
 //   fetch(`https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${lat}&longitude=${lng}`)
@@ -233,6 +236,8 @@
 
 // -----------------------------------
 // Promisifying
+// -----------------------------------------------------
+
 // const hulat = function(seconds){
 //   const promise = new Promise((resolve) => {
 //     setTimeout(function(){
@@ -259,10 +264,14 @@
 // })
 
 
+
+
+// -----------------------------------------------------
 // Create google maps
 // Add googlemaps
 // Initialize and add the map
 // let map;
+// -----------------------------------------------------
 
 // async function initMap(latitude, lngitude) {
 //   // The location of Uluru
@@ -292,6 +301,8 @@
 
 // ----------------------
 // Keep promisifying all
+// -----------------------------------------------------
+
 // const currentlocation = function(){
 //   const location = new Promise((resolve, reject) => {
 //     navigator.geolocation.getCurrentPosition(resolve, reject)
@@ -318,6 +329,7 @@
 // initMap(20.910245, 17.853431);
 
 
+// -----------------------------------------------------
 //TODO: Challenge.
 // Make image promise
 // display image in 2 sec
@@ -325,57 +337,249 @@
 // dislay another image
 // hide again the image 
 // use promise apply the lessons learned.
+// -----------------------------------------------------
 
-const imageContainer = document.querySelector('.image-container')
 
-const makeImage = function(path){
-  const imageEl = document.createElement('img');
-  const loadedImage = new Promise((resolve, reject)=>{
-    imageEl.src = path;
-    // listen if the image event is load
-    imageEl.addEventListener('load', function(){
-      imageContainer.append(imageEl)
-      resolve(imageEl);
-    });
+// const imageContainer = document.querySelector('.image-container')
 
-    // listen if the image event is error 
-    imageEl.addEventListener('error', function(){
-      reject(new Error('No Image found'));
-    });
-  })
+// const makeImage = function(path){
+//   const imageEl = document.createElement('img');
+//   const loadedImage = new Promise((resolve, reject)=>{
+//     imageEl.src = path;
+//     // listen if the image event is load
+//     imageEl.addEventListener('load', function(){
+//       imageContainer.append(imageEl)
+//       resolve(imageEl);
+//     });
 
-  return loadedImage;
-}
+//     // listen if the image event is error 
+//     imageEl.addEventListener('error', function(){
+//       reject(new Error('No Image found'));
+//     });
+//   })
 
-const wait = function(seconds){
-  const waited = new Promise((resolve, reject) => {
-    setTimeout(() => {
-      resolve()
-    }, seconds * 1000);
-  });
-  return waited
-}
+//   return loadedImage;
+// }
 
-let imge;
-makeImage('./jess.jpg')
-  .then(res => {
-    imge = res
-    console.log('displayed');
-    return wait(2)
-  })
-  .then(() => {
-    console.log('hide');
-    imge.style.display = "none"
-    return makeImage('./gwapo.jpg')
-  })
-  .then((res)=>{
-    imge = res
-    return wait(2)
-  })
-  .then(()=>{
-    imge.style.display = "none"
-  })
-  .catch(err => {
-    console.error(err);
-  })
+// const wait = function(seconds){
+//   const waited = new Promise((resolve, reject) => {
+//     setTimeout(() => {
+//       resolve()
+//     }, seconds * 1000);
+//   });
+//   return waited
+// }
+
+// let imge;
+// makeImage('./jess.jpg')
+//   .then(res => {
+//     imge = res
+//     console.log('displayed');
+//     return wait(2)
+//   })
+//   .then(() => {
+//     console.log('hide');
+//     imge.style.display = "none"
+//     return makeImage('./gwapo.jpg')
+//   })
+//   .then((res)=>{
+//     imge = res
+//     return wait(2)
+//   })
+//   .then(()=>{
+//     imge.style.display = "none"
+//   })
+//   .catch(err => {
+//     console.error(err);
+//   })
+
+// -----------------------------------------------------
+// Do Async Await
+
+// ----------------
+// 1. Make a function that ask for knowing location named getPosition
+// 2. Make a async function name getLocation
+// 3. Call the function getPosition
+// 4. Get the geolocation from the GetPosition (lat, lng)
+// 5. Pass the lat and lng as arguments to the fetch method
+// 6. Convert to json to data.
+// 7. Render to the html
+// 8. Make a manual error handler for each of the promise that will call api
+// 9. Wrap all in try catch block
+// ----------------
+
+// async function initMap(data) {
+//   // The location of Uluru
+//   const center = { lat: 8.37058, lng: 123.707013 };
+//   const position = { lat: data.latitude, lng: data.longitude };
+
+//   // Request needed libraries.
+//   //@ts-ignore
+//   const { Map } = await google.maps.importLibrary("maps");
+//   const { AdvancedMarkerElement } = await google.maps.importLibrary("marker");
+
+//   // The map, centered at Uluru
+//   let map = new Map(document.getElementById("whereI"), {
+//     zoom: 8,
+//     center: center,
+//     mapId: "DEMO_MAP_ID",
+//   });
+
+//   // The marker, positioned at Uluru
   
+//   new AdvancedMarkerElement({
+//     map: map,
+//     position: position,
+//     title: data.city,
+//   });
+// }
+
+// 1. Make a function that ask for knowing location named getPosition
+// const getPosition = function(){
+//   const currentPosition = new Promise((resolve) => {
+//     navigator.geolocation.getCurrentPosition(resolve);
+//   });
+//   return currentPosition
+// }
+
+// 2. Make a async function name getLocation
+// const getLocation = async function(){
+//   try {
+
+//     // 3. Call the function getPosition
+//     const location = await getPosition()
+
+//     // 4. Get the geolocation from the GetPosition (lat, lng)
+//     const {latitude, longitude} = location.coords;
+    
+//     // 5. Pass the lat and lng as arguments to the fetch method
+//     const response = await fetch(`https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${latitude.das}&longitude=${longitude}`);
+    
+//     // 8. Make a manual error handler for each of the promise that will call api
+//     if(!response.ok) {
+//       throw new Error('Something went wrong.....')
+//     }
+
+//     // 6. Convert to json to data.
+//     const data = await response.json();
+//     console.log(data);
+    
+//     // 7. Render to the html
+//     initMap(data)
+
+//     return `This is ${data.city}`
+
+//   }catch (error) {
+//     //To immediately avoid executing the rest of the code use "throw"
+//     throw new Error(error)
+//   }
+  
+// };
+
+
+// console.log(`This is 1`);
+// getLocation() 
+// getLocation().then(res => console.log(res)).catch(err=>{console.log(err)})
+// console.log(`This is 2`);
+
+
+// Calling another async from other async function.
+// (async function(){
+//   try {
+//     const place = await getLocation();
+//     console.log(place);
+//   } catch (error) {
+//     throw new Error(error);
+//   }
+// })();
+// console.log('lastlyy');
+
+
+// Goal is Display Multiple marks in maps
+// 1. Display sample mark in maps.
+// 2. Call sample api inside maps.
+// 3. Convent data from api to mark.
+// 4. Call multiple api inside maps and run them in parallel.
+// 5. Convert to data and display them as marks.
+
+
+// const result = getJson('https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=8.335700&longitude=123.855124')
+// console.log(result);
+
+
+// async function initMap() {
+//   // The location of Uluru
+//   const center = { lat: 8.37058, lng: 123.707013 };
+
+
+//   const location1 = await fetch(`https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=8.335700&longitude=123.855124`)
+//   const data = await location1.json();
+
+//   const position = { lat: data.latitude, lng: data.longitude };
+
+//   // Request needed libraries.
+//   //@ts-ignore
+//   const { Map } = await google.maps.importLibrary("maps");
+//   const { AdvancedMarkerElement } = await google.maps.importLibrary("marker");
+
+//   // The map, centered at Uluru
+//   let map = new Map(document.getElementById("whereI"), {
+//     zoom: 10,
+//     center: center,
+//     mapId: "DEMO_MAP_ID",
+//   });
+
+//   // The marker, positioned at Uluru
+  
+//   new AdvancedMarkerElement({
+//     map: map,
+//     position: position,
+//     title: 'smaple',
+//   });
+// }
+
+// // initMap()
+
+const getJson = async function(url){
+  try {
+    const response = await fetch(`${url}`);
+    if(!response.ok){
+      throw new Error('country not found')
+    }
+    const data = await response.json()
+    return data
+  } catch (error) {
+    throw new Error(error)
+  }
+  
+}
+
+const result = async function(){
+  const datas = await Promise.all([
+    getJson('https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=8.62622&longitude=123.393693'),
+    getJson('https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=-1.23706&longitude=116.847904'),
+    getJson('https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=-0.92398&longitude=117.20735')
+  ])
+  // const data1 = await getJson('https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=8.62622&longitude=123.393693');
+  // const data2 = await getJson('https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=-1.23706&longitude=116.847904');
+  // const data3 = await getJson('https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=-0.92398&longitude=117.20735');
+  // const latlng = [data1.city, data2.city, data3.city]
+
+  for (const places of datas) {
+    const {city, latitude, longitude} = places
+    console.log(city, latitude, longitude );
+  }
+  // console.log(latlng);
+}
+
+result();
+
+
+
+// SDLC 
+// 1. Indentify Problem
+// 2. Plan
+// 3. Design
+// 4. Develop
+// 5. Testing
+// 6. Deployment
