@@ -519,68 +519,55 @@ const getJson = async function(url){
   
 }
 
-// async function initMap() {
-//   // The location of Uluru
-//   const center = { lat: 8.37058, lng: 123.707013 };
+async function initMap() {
+  // The location of Uluru
+  const center = { lat: 8.37058, lng: 123.707013 };
 
 
-//   // ------------------------------------------------
-//   // Not Using parallel Promise
-//   // ------------------------------------------------
-//   // const location1 = await fetch(`https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=8.335700&longitude=123.855124`)
-//   // const data = await location1.json();
-//   // const position = { lat: data.latitude, lng: data.longitude };
-//   // const position1 = { lat: 7.991384, lng: 122.944999 };
-//   // const position2 = { lat: 8.376312, lng: 123.290677 };
-//   // ------------------------------------------------
+  // ------------------------------------------------
+  // Not Using parallel Promise
+  // ------------------------------------------------
+  // const location1 = await fetch(`https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=8.335700&longitude=123.855124`)
+  // const data = await location1.json();
+  // const position = { lat: data.latitude, lng: data.longitude };
+  // const position1 = { lat: 7.991384, lng: 122.944999 };
+  // const position2 = { lat: 8.376312, lng: 123.290677 };
+  // ------------------------------------------------
 
-  // const datas = await Promise.all([
-  //   getJson('https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=8.62622&longitude=123.393693'),
-  //   getJson('https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=-1.23706&longitude=116.847904'),
-  //   getJson('https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=-0.92398&longitude=117.20735')
-  // ])
-
-
-//   // Request needed libraries.
-//   //@ts-ignore
-//   const { Map } = await google.maps.importLibrary("maps");
-//   const { AdvancedMarkerElement } = await google.maps.importLibrary("marker");
-
-//   // The map, centered at Uluru
-//   let map = new Map(document.getElementById("whereI"), {
-//     zoom: 10,
-//     center: center,
-//     mapId: "DEMO_MAP_ID",
-//   });
-
-//   // The marker, positioned at Uluru
-
-//   for (const places in datas) {
-//     const {city, latitude, longitude} = places;
-//     console.log(datas[places]);
-//     new AdvancedMarkerElement({
-//       map: map,
-//       position: {lat: latitude, lng: longitude},
-//       title: city,
-//     });
-//   }
+  const datas = await Promise.all([
+    getJson('https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=8.62622&longitude=123.393693'),
+    getJson('https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=-1.23706&longitude=116.847904'),
+    getJson('https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=-0.92398&longitude=117.20735')
+  ])
 
 
-//   new AdvancedMarkerElement({
-//     map: map,
-//     position: position1,
-//     title: 'smaple 2',
-//   });
+  // Request needed libraries.
+  //@ts-ignore
+  const { Map } = await google.maps.importLibrary("maps");
+  const { AdvancedMarkerElement } = await google.maps.importLibrary("marker");
 
-//   new AdvancedMarkerElement({
-//     map: map,
-//     position: position2,
-//     title: 'smaple 3',
-//   });
+  // The map, centered at Uluru
+  let map = new Map(document.getElementById("whereI"), {
+    zoom: 10,
+    center: center,
+    mapId: "DEMO_MAP_ID",
+  });
+
+  // The marker, positioned at Uluru
+
+  for (const places of datas) {
+    const {city, latitude, longitude} = places;
+    console.log(datas[places]);
+    new AdvancedMarkerElement({
+      map: map,
+      position: {lat: latitude, lng: longitude},
+      title: city,
+    });
+  }
   
-// }
+}
 
-// initMap()
+initMap()
 
 
 
