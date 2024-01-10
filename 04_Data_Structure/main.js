@@ -1,5 +1,6 @@
 'use strict';
 
+
 // Object and Array Desctructuring
 const datas = {
   fname: 'Jessie',
@@ -30,7 +31,16 @@ const datas = {
     friday: {
       am: 7,
       pm: 1
-    }
+    },
+    saturday: {
+      am: 7,
+      pm: 1
+    },
+    sunday: {
+      am: 7,
+      pm: 1
+    },
+    
   },
   hobies: [
     'Coding',
@@ -52,10 +62,50 @@ const datas = {
     return `You and human and you like to \n ${act1}, ${act2}, ${act3}, ${act4} lastly ${act5}`
   }
 }
-// TODO: Practice REST Operator - Collect elements
+
+
+
+
+// -----------------------------------------------------------------
+// REST Operator - Collect elements
+// Only one REST Operator in destructuring
 // Rest Operator is same as Spread but Left side of the signment operator.
-const [as, ...ddd] = ['firstValue', 3, 'jessi', 'james', 23, 33]
-console.log(as);
+// const [sd, ...ddd] = ['firstValue', 3, 'jessi', 'james', 23, 33];
+// console.log(ddd);
+
+
+// Use REST Operator to separate weekdays and weekends.
+// const { saturday, ...weekDays} = datas.available;
+// console.log(weekDays);
+
+// --------------------------------
+// Use REST Operator in function. ->>Object
+// --------------------------------
+// Display Object Properties.
+// const displayResult = function({...info}){
+//   return `${info.fname}, ${info.lname}`
+// }
+// console.log(displayResult({
+//   fname: 'Jess',
+//   lname: 'Sonimac'
+// }));
+
+// --------------------------------
+// Use REST Operator in function. ->>Array
+// --------------------------------
+// const displayResult = function(...info){
+//   let sum = 0;
+//   for (let i = 0; i < info.length; i++) {
+//     sum += info[i]
+//   }
+//   return info;
+// }
+// console.log(displayResult({
+//   fd: 1, sd: 4, ff: 3
+// },
+// {
+//   vv: 1, bb: 4, nn: 3
+// }));
 
 
 //-----------------------------
