@@ -1,6 +1,260 @@
 'use strict';
 
 
+const arrVals = [
+  {fname: 'Josh', age: 23, hoby: 'Code'},
+  {fname: 'Joshs', age: 23, 
+    frid: {
+      ff: 'inside Object'
+    } 
+  }
+]
+
+const shoes = ['nike', 'adidas', 'anta']
+
+// Using Object.entries to return array of key/value pairs
+// Apply in Array
+// for (const [key, value] of Object.entries(shoes)) {
+//   console.log(value);
+// }
+
+// Use Object.entries in object destructure
+for (const [key, {ff} ] of Object.entries(arrVals[1])) {
+  console.log(ff ?? 'no value');
+}
+
+// Optional Chaining
+
+// const person = {
+//   fname: 'Jessie',
+//   lname: 'Caminos',
+  // age: 24,
+  // minus(int){
+  //   let diff = 0;
+  //   diff = int - 4;
+  //   return diff
+  // },
+//   hoby: {
+//     type: 'coding',
+//     hours: 0
+//   },
+//   friends: {
+//     f1: {
+//       age: 23,
+//       fname: 'Rhandyl',
+//       lname: 'Cacayan',
+//       parents: {
+//         fname: 'Lolita'
+//       }
+//     },
+//     f2: {
+//       age: 23,
+//       fname: 'Rhandyl',
+//       lname: 'Cacayan',
+//       parents: {
+//         // fname: 'Lolita'
+//       }
+//     }
+//   },
+//   minus(int){
+//     let diff = 4;
+//     return int - diff;
+//   }
+// }
+
+// --------------------------------
+// Objects Optional Chaining
+// --------------------------------
+// Using Optional Chaining --> Use ?. check property exist or not <--
+// Return undefine of property doesnot exist/
+// Calling property name.
+// const diff = person?.friends?.f1?.parents?.fname
+// console.log(diff);
+
+// Using Optional Chaining in Calling methods.
+// If exist then pass arguments, If not then return undefine.
+// const meth = person?.minus?.(10);
+// console.log(meth ?? 'function not exist');
+
+// Work together with null coalision
+// const comb = person?.hoby?.hours
+// console.log(comb ?? 'not exist');
+// --------------------------------
+
+// --------------------------------
+// Array Optional Chaining
+// --------------------------------
+// const arrVals = [
+//   {fname: 'Josh', age: 23, hoby: 'Code'},
+//   {fname: 'Joshs', age: 23, 
+//     frid: {
+//       ff: 'inside Object'
+//     } 
+//   }
+// ]
+
+// Apply Optional Chaining and Null Coalesion
+// const checkHoby = arrVals[1]?.hoby ?? 'No hoby indecated '
+// console.log(checkHoby);
+
+// const [asd, sd] = arrVals[0];
+// console.log(asd);
+
+// Optional Chaining
+
+// ----------------------------
+
+//Object Literal Start
+
+// Adding object inside object
+// const newObj = {
+//   obj1: 'ASDasd',
+//   obj2: 'jjlaskdj'
+// }
+// const newArr = ['Jese', 'jskajd', 'dkm']
+
+// const game = {
+//     team1: 'Bayern Munich',
+//     team2: 'Borrussia Dortmund',
+//     players: [
+//       [
+//         'Neuer',
+//         'Pavard',
+//         'Martinez',
+//         'Alaba',
+//         'Davies',
+//         'Kimmich',
+//         'Goretzka',
+//         'Coman',
+//         'Muller',
+//         'Gnarby',
+//         'Lewandowski',
+//       ],
+//     ],
+//     // Adding new object
+//     newObj,
+
+//     // Adding new array
+//     newArr,
+
+//     // Adding value from array.
+//     [newArr[0]]: {
+
+//     }
+// }
+
+// console.log(game.newArr);
+
+//Object Literal End
+
+
+// FOR OF LOOP START -->
+// const players = [...game.players[0], ...game.players[1]];
+
+
+// for (const i of players.entries()) {
+//   console.log(i);
+// }
+
+// FOR OF LOOP END -->
+
+// const game = {
+//   team1: 'Bayern Munich',
+//   team2: 'Borrussia Dortmund',
+//   players: [
+//     [
+//       'Neuer',
+//       'Pavard',
+//       'Martinez',
+//       'Alaba',
+//       'Davies',
+//       'Kimmich',
+//       'Goretzka',
+//       'Coman',
+//       'Muller',
+//       'Gnarby',
+//       'Lewandowski',
+//     ],
+//     [
+//       'Burki',
+//       'Schulz',
+//       'Hummels',
+//       'Akanji',
+//       'Hakimi',
+//       'Weigl',
+//       'Witsel',
+//       'Hazard',
+//       'Brandt',
+//       'Sancho',
+//       'Gotze',
+//     ],
+//   ],
+//   score: '4:0',
+//   scored: ['Lewandowski', 'Gnarby', 'Lewandowski', 'Hummels'],
+//   date: 'Nov 9th, 2037',
+//   odds: {
+//     team1: 1.33,
+//     x: 3.25,
+//     team2: 6.5,
+//   },
+// };
+
+// CHALLENGE 1 START
+
+// 1. Create player1 and player2
+// Apply Array Destructuringto create team1 and team2
+// const [players1, players2] = game.players;
+
+// // 2. First Player should be the Goal Keeper and the rest players should be Field Players. 
+// // Apply rest operator for dividing every first player in the game as Goal Keeper.
+// const [gkNeuer, ...fieldPlayers] = players1;
+// // const [gkBurki, ...fieldPlayers2] = players2;
+
+// // 3. Merge 2 players
+// const allPlayers = [...players1, ...players2]
+
+// // 4. Add 4 substitute players in array.
+// const subPlayers = ['New1,', 'New2', 'New3', 'AllSubPlayers'];
+// const finalPlayers1 = [...players1, ...subPlayers];
+
+// // 5. Create one variable for each odd.(Based on the games.odds);
+// const {team1, x: draw, team2} = game.odds;
+// console.log(draw);
+
+// const printGoals = function(...playerName){
+//   console.log(playerName.length);
+// }
+// printGoals(...game.scored);
+
+// CHALLEGE 1 END
+
+// Logical Assignment Operator
+// const motor1 ={
+//   brand: 'Mio',
+//   price: 0,
+//   owner: 'Jeson',
+//   klmRun: 1200
+// }
+
+// const motor2 = {
+//   brand: 'XRM',
+//   // price: 15000,
+//   owner: 'Jessie',
+// }
+
+// motor2.owner &&= 'Unknown';
+// console.log(motor2);
+
+// Null Coalescing --> checks if its null or undefined
+// const val = motor1.price ?? 20;
+// console.log(val);
+
+// Logical OR Shorthand
+// motor1.price ||= 0;
+// motor2.price ||= 0;
+// console.log(motor2.price);
+
+
 // Object and Array Desctructuring
 const datas = {
   fname: 'Jessie',
@@ -63,8 +317,77 @@ const datas = {
   }
 }
 
+// Or operator return true value.
+// const result = null || '' || undefined; // All are false.
+// const result1 = 1 || 'jess' || true; // All are true
+// const result2 = null || '' || 'Hey theyr'; // One is false
+// const result3 = undefined || '' || true; // One is true
+// console.log(result, result1, result2, result3);
+
+// // AND Operator return false value.
+// const resul = 1 && "Hey" && true; // All are true. --> LAST TRUE VALUE
+// const resul1 = null && undefined && '' && 0 && false; // All are false. --> FIERST FALSE VALUE
+// const resul2 = null && '' && 'Hey theyr' && false && undefined; // One is true. --> FIRST FALSE VALUE
+// const resul3 = true && 'jess' && 1 && undefined && undefined; // One is false --> FIRST FALSE VALUE
+// console.log(resul);
+// console.log(resul1);
+// console.log(resul2);
+// console.log(resul3);
+
+// const books = [
+//   {
+//     author: 'James Clear',
+//     book: 'Atomic Habits',
+//     isbm: '123$',
+//     keywords: 'keyword value',
+//     thirdParty: {
+//       goodreads: {
+//         rating: 4.41,
+//         ratingsCount: 1733,
+//         reviewsCount: 63,
+//         fiveStarRatingCount: 976,
+//         oneStarRatingCount: 13
+//       }
+//     },
+//     publisher: 'James Clear',
+//     printBookInfo: function({title, author, year = "unknown"}){
+//       console.log(`${title} by ${author}, ${year}`);
+//     },
+//     spellWord: function(word){
+//       console.log(...word);
+//     }
+//   },
+//   {
+//     author: 'Angela Duck',
+//     book: 'Grit',
+//     isbm: '213$',
+//   },
+//   {
+//     author: 'Stephen covy',
+//     book: '7 Hbits',
+//     isbm: '2103$',
+//   }
+// ];
+
+// const {publisher: bookPublisher, ...restOfTheBook} = books[0];
+// console.log(restOfTheBook);
 
 
+//Destructure the keywords property (array) of the first book from the books array into variables called mainKeyword and rest. 
+//The first keyword should be assigned to mainKeyword, and the rest of the keywords should be assigned to the rest variable
+// const [mainkeyWord, ...rest] = books[0].keywords
+// console.log(mainkeyWord);
+
+// Spread Operator
+// books[0].spellWord('Javascript');
+
+
+// Pass Object as argument and set default value for year.
+// books[0].printBookInfo({
+//   title: 'Grit',
+//   author: 'Angela',
+//   year: 2018
+// })
 
 // -----------------------------------------------------------------
 // REST Operator - Collect elements
@@ -72,7 +395,6 @@ const datas = {
 // Rest Operator is same as Spread but Left side of the signment operator.
 // const [sd, ...ddd] = ['firstValue', 3, 'jessi', 'james', 23, 33];
 // console.log(ddd);
-
 
 // Use REST Operator to separate weekdays and weekends.
 // const { saturday, ...weekDays} = datas.available;
