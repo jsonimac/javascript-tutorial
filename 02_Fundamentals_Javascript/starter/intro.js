@@ -2,24 +2,24 @@
 
 // ---------------------------------------------
 // Function Declaration
-// function newFunc(){
-//   console.log('First function');
-// }
+function newFunc(){
+  console.log('First function');
+}
 
 // Calling the function
-// newFunc()
-// newFunc()
-// newFunc()
+newFunc()
+newFunc()
+newFunc()
 
-
-//Passing parameters
-// function displayName(name, age, address){
-//   const sentence = `
-//     Hello my name is ${name}, I am ${age} years young 
-//     and I also live in ${address}
-//   `;
-//   return sentence
-// }
+ 
+// Passing parameters
+function displayName(name, age, address){
+  const sentence = `
+    Hello my name is ${name}, I am ${age} years young 
+    and I also live in ${address}
+  `;
+  return sentence 
+}
 // const result = displayName("Jessie", 23, "Taboo Jimenez");
 // console.log(result);
 
