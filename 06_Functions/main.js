@@ -2,27 +2,40 @@
 
 // Start Learning Functions
 
+
+const highFunc = (greeting) => {
+  return (uname) => {
+    console.log(`${greeting} there ${uname}`);
+  }
+}
+
+const lowerFunc = highFunc('Hellooo')
+lowerFunc('JEmmmm')
+highFunc('Welcome')('Jessie')
+
+
+
 // Higher Order Function
-const changerWord = function (sentence) {
-  return sentence.replace(/ /g, '💕')
-}
-console.log(changerWord('Hello There My Friends'));
-console.log('---------------');
+// const changerWord = function (sentence) {
+//   return sentence.replace(/ /g, '💕')
+// }
+// console.log(changerWord('Hello There My Friends'));
+// console.log('---------------');
 
-const upperFWord = function (sentence) {
-  const [fw, ...rest] = sentence.split(' ');
-  const frd = fw.toUpperCase();
-  const restwrd = rest.join(' ').toLowerCase()
-  return [frd, restwrd].join(' ')
-}
-console.log(upperFWord('Hello There My Friends'));
-console.log('-----------------');
+// const upperFWord = function (sentence) {
+//   const [fw, ...rest] = sentence.split(' ');
+//   const frd = fw.toUpperCase();
+//   const restwrd = rest.join(' ').toLowerCase()
+//   return [frd, restwrd].join(' ')
+// }
+// console.log(upperFWord('Hello There My Friends'));
+// console.log('-----------------');
 
 
-const spaceToHeart = function (sentence, fn) {
-  return fn(sentence)
-}
-console.log(spaceToHeart('javascript is the best of all time', changerWord));
+// const spaceToHeart = function (sentence, fn) {
+//   return fn(sentence)
+// }
+// console.log(spaceToHeart('javascript is the best of all time', changerWord));
 //This is the higher order comes in
 // Function that accepts function
 
