@@ -3,33 +3,76 @@
 // Start Learning Functions
 
 // Bind Method
-const fordRental = {
-  carName: 'Ford Ranger',
-  carType: 'Pickup',
-  plateNum: 2342,
-  rental: [],
-  currentRental(amount, name) {
-    console.log(`${this.carName} is ${this.carType} with plate ${this.plateNum} has been rent by ${name} with amount of ${amount}`);
-    this.rental.push({ carName: `${this.carName},`, personName: `${name}`, amount: `${amount}` })
-  }
-}
+// const fordRental = {
+//   carName: 'Ford Ranger',
+//   carType: 'Pickup',
+//   plateNum: 2342,
+//   rental: [],
+//   currentRental(amount, name) {
+//     console.log(`${this.carName} is ${this.carType} with plate ${this.plateNum} has been rent by ${name} with amount of ${amount}`);
+//     this.rental.push({ carName: this.carName, personName: name, amount: amount })
+//   }
+// }
 
-const viosRental = {
-  carName: 'Toyota Vios',
-  carType: 'Van',
-  plateNum: 9999,
-  rental: [],
-}
-const renting = fordRental.currentRental
+// const viosRental = {
+//   carName: 'Toyota Vios',
+//   carType: 'Van',
+//   plateNum: 9999,
+//   rental: [],
+// }
+// const hStarex = {
+//   carName: 'Starex',
+//   carType: 'Van2',
+//   plateNum: 23443,
+//   rental: [],
+// }
+// const renting = fordRental.currentRental
+// const rentV = renting.bind(viosRental)
+// const rentS = renting.bind(hStarex)
+// rentS(2000, 'Clevv');
+// rentV(2003, "Welms");
 
-const rental = renting.bind(viosRental)
-rental(1222, "Jessie")
-rental(3333, "Welms")
-rental(1222, "Brani")
-rental(1222, "Flami")
+// viosRental.cars = 1000;
+// viosRental.addCar = function () {
+//   this.cars++
+//   console.log(this);
+//   console.log(this.cars);
+// }
+// const fname = document.getElementById('personName')
+// const amount = document.getElementById('amount')
+
+// document.getElementById('cars').addEventListener('click', viosRental.addCar.bind(viosRental))
+
+// ------------------- Challenge ----------
+// const addTax = function (rate) {
+//   return function (val) {
+//     return val + val * rate
+//   }
+// }
+// const newsrate = addTax(0.23);
+// console.log(newsrate(100));
+
+
+// const fname = document.getElementById('personName')
+// const amount = document.getElementById('amount')
+
+// const btnrent = document.getElementById('rent');
+// btnrent.addEventListener('click', function () {
+//   const fval = fname.value;
+//   const mval = amount.value;
+//   console.log(`Name is ${fval}, and amount is ${mval}`);
+//   rentV(Number(mval), fval)
+//   console.log(`-----------`, typeof Number(mval));
+//   console.log(viosRental.rental);
+// })
+
+
+
+
+
 // console.log(viosRental.rental);
 
-
+//
 
 
 //---- Call and Apply Method in Functions ----
