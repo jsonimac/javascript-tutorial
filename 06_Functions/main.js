@@ -2,6 +2,25 @@
 
 // Start Learning Functions
 
+const poll = {
+  question: "What is you Favorite programming language?\n",
+  options: ['0: Javascript', '1: Python', '2: Rust', '3: C++'],
+  answer: new Array(4).fill(0)
+}
+
+poll.registerNewAnswer = function () {
+  const answer = prompt(`${this.question}${this.options.toString().replaceAll(",", "\n")}`);
+  if (isNaN(Number(answer))) {
+    return console.log('Not A Number');
+  }
+
+  return console.log('It\'s a number');
+}
+
+document.getElementById('pool').addEventListener('click', function () {
+  poll.registerNewAnswer()
+})
+
 // Bind Method
 // const fordRental = {
 //   carName: 'Ford Ranger',
