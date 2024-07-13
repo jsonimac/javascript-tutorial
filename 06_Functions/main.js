@@ -1,25 +1,45 @@
-'use strict';
+"use strict";
 
 // Start Learning Functions
 
-const poll = {
-  question: "What is you Favorite programming language?\n",
-  options: ['0: Javascript', '1: Python', '2: Rust', '3: C++'],
-  answer: new Array(4).fill(0)
-}
+// CODING CHALLENGE DONE - USING CALL METHOD
+// const poll = {
+//   question: "What is you Favorite programming language?",
+//   options: ["0: Javascript", "1: Python", "2: Rust", "3: C++"],
+//   answer: new Array(4).fill(0),
+// };
 
-poll.registerNewAnswer = function () {
-  const answer = prompt(`${this.question}${this.options.toString().replaceAll(",", "\n")}`);
-  if (isNaN(Number(answer))) {
-    return console.log('Not A Number');
-  }
+// poll.registerNewAnswer = function () {
+//   const choice = Number(prompt(`${this.question}\n${this.options.join("\n")}`));
+//   if (isNaN(choice)) {
+//     return console.log("Not A Number");
+//   } else if (choice != 0 && choice != 1 && choice != 2 && choice != 3) {
+//     return console.log("Not in the choices");
+//   }
+//   this.answer[choice]++;
+//   this.displayResult("string");
+// };
 
-  return console.log('It\'s a number');
-}
+// poll.displayResult = function (type = "array") {
+//   if (type == "string") {
+//     return console.log(`
+//       ${this.answer}
+//     `);
+//   }
+//   if (type == "array") {
+//     return console.log(this.answer);
+//   }
+// };
 
-document.getElementById('pool').addEventListener('click', function () {
-  poll.registerNewAnswer()
-})
+// document.getElementById("pool").addEventListener("click", function () {
+//   poll.registerNewAnswer();
+// });
+
+// const newGroup = {
+//   answer: [1, 2, 3, 4, 5, 7],
+// };
+// const newGroup2 = [4, 5, 7];
+// poll.displayResult.call(newGroup, "string");
 
 // Bind Method
 // const fordRental = {
@@ -71,7 +91,6 @@ document.getElementById('pool').addEventListener('click', function () {
 // const newsrate = addTax(0.23);
 // console.log(newsrate(100));
 
-
 // const fname = document.getElementById('personName')
 // const amount = document.getElementById('amount')
 
@@ -85,14 +104,9 @@ document.getElementById('pool').addEventListener('click', function () {
 //   console.log(viosRental.rental);
 // })
 
-
-
-
-
 // console.log(viosRental.rental);
 
 //
-
 
 //---- Call and Apply Method in Functions ----
 // const fordRental = {
@@ -123,12 +137,9 @@ document.getElementById('pool').addEventListener('click', function () {
 // console.log(viosRental);
 // console.log(fordRental);
 
-
 // Apply method is the same as Call but accepts the second arguments as array
 // fordRental.currentRental.apply(viosRental, [5555, 'James Leb'])
 // console.log(viosRental);
-
-
 
 // const highFunc = (greeting) => {
 //   return (uname) => {
@@ -139,8 +150,6 @@ document.getElementById('pool').addEventListener('click', function () {
 // const lowerFunc = highFunc('Hellooo')
 // lowerFunc('JEmmmm')
 // highFunc('Welcome')('Jessie')
-
-
 
 // Higher Order Function
 // const changerWord = function (sentence) {
@@ -158,14 +167,12 @@ document.getElementById('pool').addEventListener('click', function () {
 // console.log(upperFWord('Hello There My Friends'));
 // console.log('-----------------');
 
-
 // const spaceToHeart = function (sentence, fn) {
 //   return fn(sentence)
 // }
 // console.log(spaceToHeart('javascript is the best of all time', changerWord));
 //This is the higher order comes in
 // Function that accepts function
-
 
 // const orderType = 'B23';
 // const personName = {
