@@ -1,6 +1,48 @@
 "use strict";
 
 // Start Learning Functions
+// Coding Challenge
+(function () {
+  const header = document.querySelector("h2");
+  header.style.color = "red";
+
+  document.querySelector("body").addEventListener("click", function () {});
+})();
+
+// Closure in functions
+//TODO: Review Closure
+// Make a function named washPlate that accept 2 arguments
+// 1. n = number of plates
+// 2. wait = time before washing
+// Devide the plate by 4 groups
+// Display in string format after (wait) seconds
+// "I am now washing (n) of plates. There are 4 groups, each group are (membersCount)"
+
+// const washPlate = function (n, wait) {
+//   let membersCount = n / 4;
+//   setTimeout(function () {
+//     console.log(
+//       `I have washed ${n} plates.\nThere are 4 groups of plate, each group are ${membersCount}`
+//     );
+//   }, wait * 1000);
+
+//   console.log(`Wait for ${wait} seconds to finish washing the plates`);
+// };
+// // const membersCount = 90;
+// // washPlate(200, 3);
+
+// Accessi1ng all the variable from its parents
+// const parentFunc = function () {
+//   let b = 100;
+//   return function () {
+//     b++;
+//     console.log(b);
+//   };
+// };
+
+// const newFunc = parentFunc();
+// newFunc();
+// newFunc();
 
 // CODING CHALLENGE DONE - USING CALL METHOD
 // const poll = {
