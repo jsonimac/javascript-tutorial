@@ -1,16 +1,38 @@
 "use strict";
 
 // Loop Over arrays
-const accountMovement = [100, 300, 5000, -3000, 1000, -900, -800, 980];
-for (const each of accountMovement) {
-  if (each > 0) {
-    console.log(`You deposit ${each}`);
-  }
-  if (each < 0) {
-    console.log(`You withdrawn ${each}`);
-  }
-}
+// const accountMovement = [
+//   100, 300, 5000, -3000, 1000, -900, -800, 980,
+//   // "Hello There",
+// ];
+// =============
 
+// accountMovement.forEach(function(val){
+//   if (val > 0) {
+//     total = total
+//     console.log(`You deposit ${each}`);
+//   }
+//   if (val < 0) {
+//     console.log(`You withdrawn ${Math.abs(each)}`);
+//   }
+// })
+
+// for (const each of accountMovement) {
+//   if (each > 0) {
+//     console.log(`You deposit ${each}`);
+//   }
+//   if (each < 0) {
+//     console.log(`You withdrawn ${Math.abs(each)}`);
+//   }
+// }
+// console.log(`--------------This is foreach---------------`);
+// accountMovement.forEach(function (val, placeMent, arrVal) {
+//   console.log(
+//     `This is the value: ${val}\nLoop number: ${
+//       placeMent + 1
+//     }\nThis is the array value ${arrVal}`
+//   );
+// });
 // Getting the value by using at method
 // console.log("Hello Arrays ");
 // const compName = "AMSG88";
