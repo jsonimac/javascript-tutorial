@@ -60,18 +60,96 @@ const inputTransferAmount = document.querySelector('.form__input--amount');
 const inputLoanAmount = document.querySelector('.form__input--loan-amount');
 const inputCloseUsername = document.querySelector('.form__input--user');
 const inputClosePin = document.querySelector('.form__input--pin');
+const moveDepot = document.querySelector('movements__type--deposit')
 
+const displayAccountMovement = function(data){
+  containerMovements.innerHTML = ''
+  data.map(function(el,i){
+    const type = el > 0 ? 'deposit' : 'withdrawal';
+
+    const html = `
+      <div class="movements__row">
+        <div class="movements__type movements__type--${type}">${i+1} ${type}</div>
+        <div class="movements__date">You ${type} ${i+1} days ago</div>
+        <div class="movements__value">${Math.abs(el)}€</div>
+      </div>
+    `;
+    containerMovements.insertAdjacentHTML('afterbegin',html)
+  });
+}
+
+displayAccountMovement(account1.movements)
+
+// const loginAttempt = function(data){
+
+// }
+
+// console.log(accounts[1].owner);
+
+const user = 'Steven Thomas Williams';
+const toArr = user.split(" ");
+console.log(toArr);
+
+toArr.forEach((val)=>{ 
+  return val[0];
+});
+console.log(toArr);
+
+// console.log(newU);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// const getUserName = function(data){
+//  data.forEach(val => {
+//     val.userName = val.owner.
+//     toLowerCase().
+//     split(" ").
+//     map((i)=>{
+//       return i[0]
+//     }).join("");
+//   });
+// }
+// getUserName(accounts);
+// console.log(accounts);
+
+// accounts.forEach((i)=>{console.log(i.owner)})
+
+// console.log(accounts[0].owner);
+
+
+
+
+ 
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // LECTURES
 
-const currencies = new Map([
-  ['USD', 'United States dollar'],
-  ['EUR', 'Euro'],
-  ['GBP', 'Pound sterling'],
-]);
+// const currencies = new Map([
+//   ['USD', 'United States dollar'],
+//   ['EUR', 'Euro'],
+//   ['GBP', 'Pound sterling'],
+// ]);
 
-const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+// const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 /////////////////////////////////////////////////
 
@@ -82,33 +160,53 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 // const julia = [3,5,2,12,7];
 // const kate = [4,1,15,8,3];
 
-// const finalData = [...dogsKate, ...dogsJulia.slice(1,3)]
+// // const finalData = [...kate, ...julia.slice(1,3)]
 
 // const checkDogs = function(dogsJulia, dogsKate){
 //   // Step 1
-//   const finalJulia = dogsJulia.slice(1,3);
+//   const finalJulia = dogsJulia.slice();
+  
+//   finalJulia.splice(0,1)
+//   finalJulia.splice(-2)
 
 //   //Step 2
-//   const finalData = [...dogsKate, ...finalJulia]
-// s
+//   const dogs = dogsKate.concat(finalJulia)
+
 //   //Step 3
-//   finalData.forEach(function(year, index){
-//     if(year >= 3){
-//       console.log(`the dog number ${index+1} is Adult, and is ${year} year old`);
-//     }
-//     if(year < 3){
-//       console.log(`the dog number ${index+1} still a puppy, ${year} year old`);
-//     }
-//   })
+//   const result = dogs.map(function(year, index){
+//     return year >= 3 
+//       ? `the dog number ${index+1} is Adult, and is ${year} year old`
+//       : `the dog number ${index+1} still a puppy, ${year} year old`
+//   });
+//   console.log(result);
 // }
 
 // checkDogs(julia, kate)
+ 
+//  console.log('-----------');
+
+
+//  const newArr = [...aray, ...aray2]
+
+// console.log(aray.concat(aray2));
+ 
+// console.log(newArr);
+
+
+
+
+
 // Loop Over arrays
 // const accountMovement = [
 //   100, 300, 5000, -3000, 1000, -900, -800, 980,
-//   // "Hello There",
 // ];
-// =============
+// const eutoToUsd = 1.1;
+
+// const result = accountMovement.map((i)=>{
+//   return i *  eutoToUsd
+// })
+// console.log(result);
+
 
 // accountMovement.forEach(function(val){
 //   if (val > 0) {
