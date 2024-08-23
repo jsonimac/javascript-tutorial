@@ -86,54 +86,36 @@ displayAccountMovement(account1.movements)
 
 // console.log(accounts[1].owner);
 
-const user = 'Steven Thomas Williams';
-const toArr = user.split(" ");
-console.log(toArr);
+//Make 2 example using map function
+//Make 2 example using foreach function
+// Explain the difference
 
-toArr.forEach((val)=>{ 
-  return val[0];
-});
-console.log(toArr);
+// Using map, return all person with 2 names ex. "Jan James" 
+const pnames = ['James', 'Kyrie Andrew', 'Clark', 'John Sebastian']
+const twoName = pnames.filter((i)=>{
+  return i.includes(" ")
+})
+console.log(twoName);
 
-// console.log(newU);
+ 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+const getUserName = function(data){
+ data.forEach(val => {
+    val.userName = val.owner.
+    toLowerCase().
+    split(" ").
+    map((i)=>{
+      return i[0]
+    }).join("");
+  });
+}
+// accounts.map()
+getUserName(accounts);
 
 
 
 
-
-// const getUserName = function(data){
-//  data.forEach(val => {
-//     val.userName = val.owner.
-//     toLowerCase().
-//     split(" ").
-//     map((i)=>{
-//       return i[0]
-//     }).join("");
-//   });
-// }
-// getUserName(accounts);
-// console.log(accounts);
-
-// accounts.forEach((i)=>{console.log(i.owner)})
-
-// console.log(accounts[0].owner);
+// btnLogin.addEventListener('click', ()=>{console.log('helooos')})
 
 
 
