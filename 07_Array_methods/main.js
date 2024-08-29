@@ -80,24 +80,6 @@ const displayAccountMovement = function(data){
 
 displayAccountMovement(account1.movements)
 
-// const loginAttempt = function(data){
-
-// }
-
-// console.log(accounts[1].owner);
-
-//Make 2 example using map function
-//Make 2 example using foreach function
-// Explain the difference
-
-// Using map, return all person with 2 names ex. "Jan James" 
-const pnames = ['James', 'Kyrie Andrew', 'Clark', 'John Sebastian']
-const twoName = pnames.filter((i)=>{
-  return i.includes(" ")
-})
-console.log(twoName);
-
- 
 
 const getUserName = function(data){
  data.forEach(val => {
@@ -113,9 +95,121 @@ const getUserName = function(data){
 getUserName(accounts);
 
 
+// ----------------------------
+// Todo - Make a function that will total both withdraw and deposit
+// ----------------------------
+
+const displayeSummary = function(data){
+  // Total DEPOSIT in FILTER Method
+  const totalDeposit = data.movements.filter((amount)=>{
+      return amount > 0
+    }).reduce((pre, cur)=>{
+      return pre + cur
+    }, 0);
+  labelSumIn.innerHTML = totalDeposit;
+
+  // Total WITHDRAWAL in FILTER Method
+  const totalWithdraw = data.movements.filter((amount)=>{
+      return amount < 0;
+    }).reduce((pre, curr)=>{
+      return pre +curr
+    },0);
+  labelSumOut.innerHTML = Math.abs(totalWithdraw);
+
+  // Interest in every deposit and sum
+  const inter = data.movements.filter((amount)=>{
+    return amount > 0;
+  }).map((amount)=>{
+    return amount * 1.2
+  }).reduce((prev, cur)=>{
+    return prev + cur
+  }, 0)
+  
+  labelSumInterest.textContent = inter;
+  
+}
+
+displayeSummary(account1)
+ 
 
 
-// btnLogin.addEventListener('click', ()=>{console.log('helooos')})
+
+
+
+// GET BALANCE in FILTER Method
+const getBalance = function(data) {
+  const bal = data.movements.reduce((acc, curr)=>{
+    return acc + curr
+  })
+  labelBalance.innerHTML = `${bal}$`
+}
+getBalance(account1)
+
+
+// Get MAX Value
+const getMaxVal = function(data){
+  const maxV = data.movements.reduce((prev, curr)=>{
+    return prev > curr ? prev : curr
+    
+  },data.movements[0])
+  return maxV;
+}
+console.log(`Maximum Value is ${getMaxVal(account1)}`);
+
+
+
+// console.log(getMaxVal(account1));
+ 
+// DEPOSIT in For of Loop
+// const storeResult = []
+// for(const i of account1.movements) {
+//   if(i>0){
+//     storeResult.push(i)
+//   }
+// }
+// console.log(storeResult);
+
+// console.log(deposits(account1));
+// console.log(withdrawals(account1));
+// getBalance(account1)
+
+
+// Challenge Begin --
+// Coding Challenge #2
+
+/* 
+Let's go back to Julia and Kate's study about dogs. This time, they want to convert dog ages to human ages and calculate the average age of the dogs in their study.
+
+Create a function 'calcAverageHumanAge', which accepts an arrays of dog's ages ('ages'), and does the following things in order:
+
+
+
+
+4. Run the function for both test datasets
+
+TEST DATA 1: [5, 2, 4, 1, 15, 8, 3]
+TEST DATA 2: [16, 6, 10, 5, 6, 1, 4]
+*/
+
+const calcAverageHumanAge = function(ages){
+  
+  const ageAve = ages.map((age)=>{
+    if(age<=2){
+      return 2 * age
+    }else{
+      return 16 + age * 4
+    }
+  }).filter((age)=>{
+    return age >= 18
+  }).reduce((prev, curr, i, k)=>{
+    return prev + curr / k.length 
+  }, 0)
+
+  console.log(`Average ${ageAve}`);
+  
+}
+calcAverageHumanAge([5, 2, 4, 1, 15, 8, 3])
+calcAverageHumanAge([16, 6, 10, 5, 6, 1, 4])
 
 
 
