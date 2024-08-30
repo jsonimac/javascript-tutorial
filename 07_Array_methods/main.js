@@ -6,31 +6,31 @@
 
 // Data
 const account1 = {
-  owner: 'Jonas Schmedtmann',
-  movements: [200, 450, -400, 3000, -650, -130, 70, 1300],
-  interestRate: 1.2, // %
-  pin: 1111,
+   owner: 'Jonas Schmedtmann',
+   movements: [200, 450, -400, 3000, -650, -130, 70, 1300],
+   interestRate: 1.2, // %
+   pin: 1111,
 };
 
 const account2 = {
-  owner: 'Jessica Davis',
-  movements: [5000, 3400, -150, -790, -3210, -1000, 8500, -30],
-  interestRate: 1.5,
-  pin: 2222,
+   owner: 'Jessica Davis',
+   movements: [5000, 3400, -150, -790, -3210, -1000, 8500, -30],
+   interestRate: 1.5,
+   pin: 2222,
 };
 
 const account3 = {
-  owner: 'Steven Thomas Williams',
-  movements: [200, -200, 340, -300, -20, 50, 400, -460],
-  interestRate: 0.7,
-  pin: 3333,
+   owner: 'Steven Thomas Williams',
+   movements: [200, -200, 340, -300, -20, 50, 400, -460],
+   interestRate: 0.7,
+   pin: 3333,
 };
 
 const account4 = {
-  owner: 'Sarah Smith',
-  movements: [430, 1000, 700, 50, 90],
-  interestRate: 1,
-  pin: 4444,
+   owner: 'Sarah Smith',
+   movements: [430, 1000, 700, 50, 90],
+   interestRate: 1,
+   pin: 4444,
 };
 
 const accounts = [account1, account2, account3, account4];
@@ -63,33 +63,33 @@ const inputClosePin = document.querySelector('.form__input--pin');
 const moveDepot = document.querySelector('movements__type--deposit')
 
 const displayAccountMovement = function(data){
-  containerMovements.innerHTML = ''
-  data.map(function(el,i){
-    const type = el > 0 ? 'deposit' : 'withdrawal';
+containerMovements.innerHTML = ''
+data.map(function(el,i){
+   const type = el > 0 ? 'deposit' : 'withdrawal'; 
 
-    const html = `
+   const html = `
       <div class="movements__row">
-        <div class="movements__type movements__type--${type}">${i+1} ${type}</div>
-        <div class="movements__date">You ${type} ${i+1} days ago</div>
-        <div class="movements__value">${Math.abs(el)}€</div>
+         <div class="movements__type movements__type--${type}">${i+1} ${type}</div>
+         <div class="movements__date">You ${type} ${i+1} days ago</div>
+         <div class="movements__value">${Math.abs(el)}€</div>
       </div>
-    `;
-    containerMovements.insertAdjacentHTML('afterbegin',html)
-  });
+   `;
+   containerMovements.insertAdjacentHTML('afterbegin',html)
+});
 }
 
 displayAccountMovement(account1.movements)
 
 
 const getUserName = function(data){
- data.forEach(val => {
-    val.userName = val.owner.
-    toLowerCase().
-    split(" ").
-    map((i)=>{
-      return i[0]
-    }).join("");
-  });
+   data.forEach(val => {
+      val.userName = val.owner.
+         toLowerCase().
+         split(" ").
+         map((i)=>{
+            return i[0]
+         }).join("");
+   });
 }
 // accounts.map()
 getUserName(accounts);
@@ -100,66 +100,58 @@ getUserName(accounts);
 // ----------------------------
 
 const displayeSummary = function(data){
-  // Total DEPOSIT in FILTER Method
-  const totalDeposit = data.movements.filter((amount)=>{
+   // Total DEPOSIT in FILTER Method
+   const totalDeposit = data.movements.filter((amount)=>{
       return amount > 0
-    }).reduce((pre, cur)=>{
+   }).reduce((pre, cur)=>{
       return pre + cur
-    }, 0);
-  labelSumIn.innerHTML = totalDeposit;
+   }, 0);
+   labelSumIn.innerHTML = totalDeposit;
 
-  // Total WITHDRAWAL in FILTER Method
-  const totalWithdraw = data.movements.filter((amount)=>{
+   // Total WITHDRAWAL in FILTER Method
+   const totalWithdraw = data.movements.filter((amount)=>{
       return amount < 0;
-    }).reduce((pre, curr)=>{
+   }).reduce((pre, curr)=>{
       return pre +curr
-    },0);
-  labelSumOut.innerHTML = Math.abs(totalWithdraw);
+   },0);
+   labelSumOut.innerHTML = Math.abs(totalWithdraw);
 
-  // Interest in every deposit and sum
-  const inter = data.movements.filter((amount)=>{
-    return amount > 0;
-  }).map((amount)=>{
-    return amount * 1.2
-  }).reduce((prev, cur)=>{
-    return prev + cur
-  }, 0)
-  
-  labelSumInterest.textContent = inter;
-  
+   // Interest in every deposit and sum
+
+   const inter = data.movements.filter((amount)=>{
+      return amount > 0;
+   }).map((amount)=>{
+      return amount * 1.2 / 100
+   }).reduce((prev, cur)=>{
+      return prev + cur
+   }, 0)
+
+   labelSumInterest.textContent = inter;
+
 }
-
 displayeSummary(account1)
- 
-
-
-
-
 
 // GET BALANCE in FILTER Method
 const getBalance = function(data) {
-  const bal = data.movements.reduce((acc, curr)=>{
-    return acc + curr
-  })
-  labelBalance.innerHTML = `${bal}$`
+   const bal = data.movements.reduce((acc, curr)=>{
+      return acc + curr
+   })
+   labelBalance.innerHTML = `${bal}$`
 }
 getBalance(account1)
 
 
 // Get MAX Value
 const getMaxVal = function(data){
-  const maxV = data.movements.reduce((prev, curr)=>{
-    return prev > curr ? prev : curr
-    
-  },data.movements[0])
-  return maxV;
+   const maxV = data.movements.reduce((prev, curr)=>{
+      return prev > curr ? prev : curr
+   },data.movements[0])
+   return maxV;
 }
 console.log(`Maximum Value is ${getMaxVal(account1)}`);
 
-
-
 // console.log(getMaxVal(account1));
- 
+
 // DEPOSIT in For of Loop
 // const storeResult = []
 // for(const i of account1.movements) {
@@ -192,21 +184,20 @@ TEST DATA 2: [16, 6, 10, 5, 6, 1, 4]
 */
 
 const calcAverageHumanAge = function(ages){
-  
-  const ageAve = ages.map((age)=>{
-    if(age<=2){
-      return 2 * age
-    }else{
-      return 16 + age * 4
-    }
-  }).filter((age)=>{
-    return age >= 18
-  }).reduce((prev, curr, i, k)=>{
-    return prev + curr / k.length 
-  }, 0)
+   const ageAve = ages.map((age)=>{
+      if(age<=2){
+         return 2 * age
+      }else{
+         return 16 + age * 4
+      }
+   }).filter((age)=>{
+      return age >= 18
+   }).reduce((prev, curr, i, k)=>{
+      return prev + curr / k.length 
+   },0)
 
-  console.log(`Average ${ageAve}`);
-  
+console.log(`Average ${ageAve}`);
+
 }
 calcAverageHumanAge([5, 2, 4, 1, 15, 8, 3])
 calcAverageHumanAge([16, 6, 10, 5, 6, 1, 4])
@@ -214,7 +205,7 @@ calcAverageHumanAge([16, 6, 10, 5, 6, 1, 4])
 
 
 
- 
+
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // LECTURES
@@ -241,7 +232,7 @@ calcAverageHumanAge([16, 6, 10, 5, 6, 1, 4])
 // const checkDogs = function(dogsJulia, dogsKate){
 //   // Step 1
 //   const finalJulia = dogsJulia.slice();
-  
+
 //   finalJulia.splice(0,1)
 //   finalJulia.splice(-2)
 
@@ -258,14 +249,14 @@ calcAverageHumanAge([16, 6, 10, 5, 6, 1, 4])
 // }
 
 // checkDogs(julia, kate)
- 
+
 //  console.log('-----------');
 
 
 //  const newArr = [...aray, ...aray2]
 
 // console.log(aray.concat(aray2));
- 
+
 // console.log(newArr);
 
 
