@@ -62,6 +62,43 @@ const inputCloseUsername = document.querySelector('.form__input--user');
 const inputClosePin = document.querySelector('.form__input--pin');
 const moveDepot = document.querySelector('movements__type--deposit')
 
+// Implement Login Function
+let currentUser;
+
+btnLogin.addEventListener('click', (e)=>{
+   // Prevent from submitting
+   e.preventDefault();
+
+   // Check if the value in input field exist in the accounts
+   currentUser = accounts.find((user)=>{
+      return user.userName === inputLoginUsername.value
+   })
+
+   // Assign value if the input is not found
+   currentUser == undefined ? "No user login" : ""
+   console.log(currentUser);
+   
+   // Check the pin in the user if matches
+   if(currentUser?.pin == Number(inputLoginPin.value)){
+      // Display page
+      // containerApp.style.opacity = "1";
+
+      // Remove input data in fields
+      inputLoginUsername.value = inputLoginPin.value = "";
+      inputLoginPin.blur()
+
+      // Display Name in page
+      labelWelcome.textContent = `Welcome ${currentUser.owner}`
+
+      //Display movements
+      displayAccountMovement(currentUser.movements)
+
+      //Display balance and summary
+      displayeSummary(currentUser)  
+   }
+})
+
+
 const displayAccountMovement = function(data){
 containerMovements.innerHTML = ''
 data.map(function(el,i){
@@ -77,9 +114,7 @@ data.map(function(el,i){
    containerMovements.insertAdjacentHTML('afterbegin',html)
 });
 }
-
-displayAccountMovement(account1.movements)
-
+// displayAccountMovement(account1.movements)
 
 const getUserName = function(data){
    data.forEach(val => {
@@ -91,13 +126,7 @@ const getUserName = function(data){
          }).join("");
    });
 }
-// accounts.map()
 getUserName(accounts);
-
-
-// ----------------------------
-// Todo - Make a function that will total both withdraw and deposit
-// ----------------------------
 
 const displayeSummary = function(data){
    // Total DEPOSIT in FILTER Method
@@ -117,38 +146,104 @@ const displayeSummary = function(data){
    labelSumOut.innerHTML = Math.abs(totalWithdraw);
 
    // Interest in every deposit and sum
-
    const inter = data.movements.filter((amount)=>{
       return amount > 0;
-   }).map((amount)=>{
-      return amount * 1.2 / 100
-   }).reduce((prev, cur)=>{
-      return prev + cur
-   }, 0)
-
+   }).map((positive)=>{
+      return positive * data.interestRate / 100
+   }).filter((validInter)=>{
+      return validInter >= 1
+   }).reduce((prev, eachInter)=>{
+      return eachInter + prev 
+   },0)   
    labelSumInterest.textContent = inter;
 
-}
-displayeSummary(account1)
-
-// GET BALANCE in FILTER Method
-const getBalance = function(data) {
-   const bal = data.movements.reduce((acc, curr)=>{
+   data.balance = data.movements.reduce((acc, curr)=>{
       return acc + curr
    })
-   labelBalance.innerHTML = `${bal}$`
+   labelBalance.innerHTML = `${data.balance}$`
 }
-getBalance(account1)
 
+// GET Transfer Method
+btnTransfer.addEventListener("click", function(e){
+   e.preventDefault()
+                                                                                                        
+   const to = inputTransferTo.value;
+   const amount = Number(inputTransferAmount.value);
+
+   // Check if receiver exist
+   const res = accounts.find((acc)=>{
+      return acc.userName == to
+   })
+
+   // Check if user does exist
+   if(res == undefined){
+      return console.log("Reciever don't exist");
+   }
+
+   // Check if balance is not less that 0
+   if(currentUser.balance <= 0){
+     return console.log("Dont have enough balance");
+   }
+
+   // Check if balance is not less that 0
+   if(amount <= 0){
+      return console.log("You can't send 0");
+   }
+
+   // Check if amount is not greater than balance
+   if(amount > currentUser.balance){
+      return console.log("Money must not greater than balance");
+   }
+
+   // console.log(res.userName);
+   // Check if user is not thesame with the reciever
+   if(res.userName === currentUser.userName){
+      return console.log("You can't send money to your own account");
+   }
+   
+   res.movements.push(Number(amount))
+   currentUser.movements.push(-Number(amount))
+   //Display movements
+   displayAccountMovement(currentUser.movements)
+   //Display balance and summary
+   displayeSummary(currentUser)
+
+   inputTransferTo.value = inputTransferAmount.value = ""
+   console.log(res);  
+   
+})
+
+// Array method practice
+
+//total of all sum in deposits
+
+
+
+
+// const userDetails = accounts.find((i)=>{
+//    return i.owner === "Sarah Smith"
+// })
+// console.log(userDetails);
+// let val = []
+// for (const [index, data] of accounts.entries()) {
+//    if(data.owner == "Jessica Davis"){
+//       val.push(accounts[index])
+//    }
+// }
+// console.log(val);
+
+
+// console.log(accounts);
+ 
 
 // Get MAX Value
-const getMaxVal = function(data){
-   const maxV = data.movements.reduce((prev, curr)=>{
-      return prev > curr ? prev : curr
-   },data.movements[0])
-   return maxV;
-}
-console.log(`Maximum Value is ${getMaxVal(account1)}`);
+// const getMaxVal = function(data){
+//    const maxV = data.movements.reduce((prev, curr)=>{
+//       return prev > curr ? prev : curr
+//    },data.movements[0])
+//    return maxV;
+// }
+// console.log(`Maximum Value is ${getMaxVal(account1)}`);
 
 // console.log(getMaxVal(account1));
 
@@ -183,24 +278,18 @@ TEST DATA 1: [5, 2, 4, 1, 15, 8, 3]
 TEST DATA 2: [16, 6, 10, 5, 6, 1, 4]
 */
 
-const calcAverageHumanAge = function(ages){
-   const ageAve = ages.map((age)=>{
-      if(age<=2){
-         return 2 * age
-      }else{
-         return 16 + age * 4
-      }
-   }).filter((age)=>{
-      return age >= 18
-   }).reduce((prev, curr, i, k)=>{
-      return prev + curr / k.length 
-   },0)
-
-console.log(`Average ${ageAve}`);
-
-}
-calcAverageHumanAge([5, 2, 4, 1, 15, 8, 3])
-calcAverageHumanAge([16, 6, 10, 5, 6, 1, 4])
+// const calcAverageHumanAge = function(ages){
+//    const ageAve = ages.map((age)=>{
+//       return age <= 2 ? 2 * age : 16 + age * 4;
+//    }).filter((convertAge)=>{
+//       return convertAge >= 18
+//    }).reduce((prev, legalAge, i, k)=>{      
+//       return prev + legalAge / k.length 
+//    }, 0)
+//    console.log(`Average ${ageAve}`);
+// }
+// calcAverageHumanAge([5, 2, 4, 1, 15, 8, 3])
+// calcAverageHumanAge([16, 6, 10, 5, 6, 1, 4])
 
 
 
@@ -218,9 +307,24 @@ calcAverageHumanAge([16, 6, 10, 5, 6, 1, 4])
 
 // const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
-/////////////////////////////////////////////////
+// Total Bank Deposits
+const totalDeposit = accounts.flatMap((acc)=>{
+   return acc.movements
+}).filter((posi)=>{
+   return posi > 0
+}).reduce((prev, curr)=>{
+   return prev + curr
+},0)
+console.log(totalDeposit);
 
+console.log('Get all 1000 deposits');
 
+const all1k = accounts.flatMap((acc)=>{
+   return acc.movements
+}).filter((all1k)=>{
+   return all1k > 1000
+}).length;
+console.log(all1k);
 
 
 // --- Coding Challege ---
